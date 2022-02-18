@@ -1,4 +1,41 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Projects on Terminal</title><link>https://rasengangstarr.github.io/Portfolio/projects/</link><description>Recent content in Projects on Terminal</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 18 Feb 2022 17:30:32 +0000</lastBuildDate><atom:link href="https://rasengangstarr.github.io/Portfolio/projects/index.xml" rel="self" type="application/rss+xml"/><item><title>Hugo Static Web Site</title><link>https://rasengangstarr.github.io/Portfolio/projects/hugo-static-web-site/</link><pubDate>Fri, 18 Feb 2022 17:30:32 +0000</pubDate><guid>https://rasengangstarr.github.io/Portfolio/projects/hugo-static-web-site/</guid><description>I&amp;rsquo;ve wanted to make some kind of portfolio website / blog for a few years now.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Projects on Rasengangstarr</title><link>https://rasengangstarr.github.io/Portfolio/projects/</link><description>Recent content in Projects on Rasengangstarr</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 18 Feb 2022 20:12:30 +0000</lastBuildDate><atom:link href="https://rasengangstarr.github.io/Portfolio/projects/index.xml" rel="self" type="application/rss+xml"/><item><title>Vim Wiki Habits</title><link>https://rasengangstarr.github.io/Portfolio/projects/vim-habits/</link><pubDate>Fri, 18 Feb 2022 20:12:30 +0000</pubDate><guid>https://rasengangstarr.github.io/Portfolio/projects/vim-habits/</guid><description>Github Page.
+A few months back, I decided I was going to finally force myself to learn Vim.
+I ended up building a 60% keyboard with snap in switches (which was a fun project in and of itself), which crucially didn&amp;rsquo;t have any arrow keys, forcing me to learn vim&amp;rsquo;s hjkl control system.
+Anyway, somewhere down that rabbit hole, I discovered Vim Wiki and Vimscript.
+Vim Wiki Vim Wiki is a vim extension that allows you to create markdown documents that are rendered in vim.</description><content>&lt;p>&lt;a href="https://github.com/Rasengangstarr/vimwikihabits">Github Page&lt;/a>.&lt;/p>
+&lt;p>A few months back, I decided I was going to finally force myself to learn &lt;a href="https://www.vim.org/">Vim&lt;/a>.&lt;/p>
+&lt;p>I ended up building a 60% keyboard with snap in switches (which was a fun project in and of itself), which crucially didn&amp;rsquo;t have any arrow keys, forcing me to learn vim&amp;rsquo;s hjkl control system.&lt;/p>
+&lt;p>&lt;img src="https://rasengangstarr.github.io/Portfolio/images/mykeyboard.jpg" alt="My Keyboard">&lt;/p>
+&lt;p>Anyway, somewhere down that rabbit hole, I discovered &lt;a href="https://github.com/vimwiki/vimwiki">Vim Wiki&lt;/a> and Vimscript.&lt;/p>
+&lt;h1 id="vim-wiki">Vim Wiki&lt;/h1>
+&lt;p>Vim Wiki is a vim extension that allows you to create markdown documents that are rendered in vim. Obviously since vim runs in a terminal session that doesn&amp;rsquo;t mean much, but it does allow you to do some cool things like bullet point lists, checklists and impressively create hyperlinks between documents.&lt;/p>
+&lt;p>Bundled with Vim Wiki is a diary feature. Using hotkeys, you can create diary entries for the current day, and generate an index page to navigate them.&lt;/p>
+&lt;h1 id="vimscript">Vimscript&lt;/h1>
+&lt;p>Vimscript the scripting (duh) language used to create vim plugins. It&amp;rsquo;s quite limited, and you have to jump through some hoops to get anything done, but I spent some time working through &lt;a href="https://learnvimscriptthehardway.stevelosh.com/">This set of tutorials&lt;/a> to get to grips with it.&lt;/p>
+&lt;h1 id="my-project">My Project&lt;/h1>
+&lt;p>I figured that a cool (and potentially actually useful) extension to the Diary in VimWiki would be a habit tracker.&lt;/p>
+&lt;p>I wanted to be able to define a set of habits, and have them pasted into Diary pages as a list of checkboxes. I then wanted to take those filled in checkbox lists and use them to generate a report of what habits had and hadn&amp;rsquo;t been followed.&lt;/p>
+&lt;p>The code (which you can find on &lt;a href="https://github.com/Rasengangstarr/vimwikihabits">Github&lt;/a>) is an utter mess, but it just about works.&lt;/p>
+&lt;h1 id="how-its-used">How its used&lt;/h1>
+&lt;p>First, navigate to your vimwiki diary directory, and create a new file called habits.vim. Inside it, enter your habits as a new line seperated list:&lt;/p>
+&lt;p>&lt;img src="https://rasengangstarr.github.io/Portfolio/images/vimwikihabits1.png" alt="screenshot-1635963144">&lt;/p>
+&lt;p>Save this file, then enter one of your diary entries, (or create one using the vimwiki diary shortcuts:&lt;/p>
+&lt;p>&lt;img src="https://rasengangstarr.github.io/Portfolio/images/vimwikihabits2.png" alt="screenshot-1635963379">&lt;/p>
+&lt;p>Press &lt;!-- raw HTML omitted --> :VimWikiHabitsInsert&lt;/p>
+&lt;p>&lt;img src="https://rasengangstarr.github.io/Portfolio/images/vimwikihabits3.png" alt="screenshot-1635963519">&lt;/p>
+&lt;p>This should paste your habits as a todo list in the diary entry - check or uncheck them by pressing &lt;!-- raw HTML omitted -->+&lt;!-- raw HTML omitted --> over the boxes.&lt;/p>
+&lt;p>Then you can simply press &lt;!-- raw HTML omitted --> :VimWikiHabitsGenerate to view the habit tracker at the bottom of the screen&lt;/p>
+&lt;p>&lt;img src="https://rasengangstarr.github.io/Portfolio/images/vimwikihabits4.png" alt="screenshot-1635963495">&lt;/p>
+&lt;h1 id="further-work">Further work&lt;/h1>
+&lt;p>Having gotten the vim plugin bug, I made two further plugins:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/Rasengangstarr/vascii">Vascii&lt;/a>, which utilizes the jp2a bash program to render an image file as ascii art directly into a document within vim&lt;/li>
+&lt;li>&lt;a href="https://github.com/Rasengangstarr/Vimcats">Vimcats&lt;/a>, which takes an image from this &lt;a href="https://cataas.com/cat">Random cat image API&lt;/a> and dumps it into a document within vim&lt;/li>
+&lt;/ul>
+&lt;h1 id="conclusions">Conclusions&lt;/h1>
+&lt;p>I&amp;rsquo;ve not done much with Vimscript since these projects, but I still use Vim every day. I&amp;rsquo;m currently editing this document with the Vim extension for Visual Studio Code, I use a Vim plugin for Visual Studio when I&amp;rsquo;m developing C# on Windows at work, and being able to quickly edit files on my home computer without leaving the terminal is awesome.&lt;/p>
+&lt;p>It takes a while to learn Vim&amp;rsquo;s keys, but once you get the hang of it everything becomes easier, and using the &amp;lsquo;standard&amp;rsquo; way of editing files feels like a huge step backwards.&lt;/p>
+&lt;p>My biggest problem now is accidentally typing :w in the middle of text files when I&amp;rsquo;m using notepad++ at work.&lt;/p></content></item><item><title>Hugo Static Web Site</title><link>https://rasengangstarr.github.io/Portfolio/projects/hugo-static-web-site/</link><pubDate>Fri, 18 Feb 2022 17:30:32 +0000</pubDate><guid>https://rasengangstarr.github.io/Portfolio/projects/hugo-static-web-site/</guid><description>I&amp;rsquo;ve wanted to make some kind of portfolio website / blog for a few years now.
 During some downtime at work (caused by a storm taking out the power where our Gitlab instance is stored), I got to googling around new javascript frameworks, looking for something other than the Vue.JS I already used at work to play around with this weekend.
 Somewhere down that rabbit hole, I started looking into static website frameworks.</description><content>&lt;p>I&amp;rsquo;ve wanted to make some kind of portfolio website / blog for a few years now.&lt;/p>
 &lt;p>During some downtime at work (caused by a storm taking out the power where our Gitlab instance is stored), I got to googling around new javascript frameworks, looking for something other than the Vue.JS I already used at work to play around with this weekend.&lt;/p>

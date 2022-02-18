@@ -1,0 +1,133 @@
+<!doctype html><html lang=en>
+<head>
+<title>Vim Wiki Habits :: Rasengangstarr</title>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content="Github Page.
+A few months back, I decided I was going to finally force myself to learn Vim.
+I ended up building a 60% keyboard with snap in switches (which was a fun project in and of itself), which crucially didn&amp;rsquo;t have any arrow keys, forcing me to learn vim&amp;rsquo;s hjkl control system.
+Anyway, somewhere down that rabbit hole, I discovered Vim Wiki and Vimscript.
+Vim Wiki Vim Wiki is a vim extension that allows you to create markdown documents that are rendered in vim.">
+<meta name=keywords content>
+<meta name=robots content="noodp">
+<link rel=canonical href=https://rasengangstarr.github.io/Portfolio/projects/vim-habits/>
+<link rel=stylesheet href=https://rasengangstarr.github.io/Portfolio/assets/style.css>
+<link rel=stylesheet href=https://rasengangstarr.github.io/Portfolio/assets/blue.css>
+<link rel=apple-touch-icon href=https://rasengangstarr.github.io/Portfolio/img/apple-touch-icon-192x192.png>
+<link rel="shortcut icon" href=https://rasengangstarr.github.io/Portfolio/img/favicon/blue.png>
+<meta name=twitter:card content="summary">
+<meta name=twitter:site content>
+<meta name=twitter:creator content>
+<meta property="og:locale" content="en">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vim Wiki Habits">
+<meta property="og:description" content="Github Page.
+A few months back, I decided I was going to finally force myself to learn Vim.
+I ended up building a 60% keyboard with snap in switches (which was a fun project in and of itself), which crucially didn&amp;rsquo;t have any arrow keys, forcing me to learn vim&amp;rsquo;s hjkl control system.
+Anyway, somewhere down that rabbit hole, I discovered Vim Wiki and Vimscript.
+Vim Wiki Vim Wiki is a vim extension that allows you to create markdown documents that are rendered in vim.">
+<meta property="og:url" content="https://rasengangstarr.github.io/Portfolio/projects/vim-habits/">
+<meta property="og:site_name" content="Rasengangstarr">
+<meta property="og:image" content="https://rasengangstarr.github.io/Portfolio/img/favicon/blue.png">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+<meta property="article:published_time" content="2022-02-18 20:12:30 +0000 UTC">
+</head>
+<body class=blue>
+<div class="container center headings--one-size">
+<header class=header>
+<div class=header__inner>
+<div class=header__logo>
+<a href=https://rasengangstarr.github.io/Portfolio/>
+<div class=logo>
+Rasengangstarr
+</div>
+</a>
+</div>
+<div class=menu-trigger>menu</div>
+</div>
+<nav class=menu>
+<ul class="menu__inner menu__inner--desktop">
+<li><a href=https://rasengangstarr.github.io/Portfolio/about>About</a></li>
+<li><a href=https://rasengangstarr.github.io/Portfolio/projects/>Projects</a></li>
+</ul>
+<ul class="menu__inner menu__inner--mobile">
+<li><a href=https://rasengangstarr.github.io/Portfolio/about>About</a></li>
+<li><a href=https://rasengangstarr.github.io/Portfolio/projects/>Projects</a></li>
+</ul>
+</nav>
+</header>
+<div class=content>
+<div class=post>
+<h1 class=post-title>
+<a href=https://rasengangstarr.github.io/Portfolio/projects/vim-habits/>Vim Wiki Habits</a></h1>
+<div class=post-meta>
+<span class=post-date>
+2022-02-18
+</span>
+</div>
+<div class=post-content><div>
+<p><a href=https://github.com/Rasengangstarr/vimwikihabits>Github Page</a>.</p>
+<p>A few months back, I decided I was going to finally force myself to learn <a href=https://www.vim.org/>Vim</a>.</p>
+<p>I ended up building a 60% keyboard with snap in switches (which was a fun project in and of itself), which crucially didn&rsquo;t have any arrow keys, forcing me to learn vim&rsquo;s hjkl control system.</p>
+<p><img src=https://rasengangstarr.github.io/Portfolio/images/mykeyboard.jpg alt="My Keyboard"></p>
+<p>Anyway, somewhere down that rabbit hole, I discovered <a href=https://github.com/vimwiki/vimwiki>Vim Wiki</a> and Vimscript.</p>
+<h1 id=vim-wiki>Vim Wiki<a href=#vim-wiki class=hanchor arialabel=Anchor>&#8983;</a> </h1>
+<p>Vim Wiki is a vim extension that allows you to create markdown documents that are rendered in vim. Obviously since vim runs in a terminal session that doesn&rsquo;t mean much, but it does allow you to do some cool things like bullet point lists, checklists and impressively create hyperlinks between documents.</p>
+<p>Bundled with Vim Wiki is a diary feature. Using hotkeys, you can create diary entries for the current day, and generate an index page to navigate them.</p>
+<h1 id=vimscript>Vimscript<a href=#vimscript class=hanchor arialabel=Anchor>&#8983;</a> </h1>
+<p>Vimscript the scripting (duh) language used to create vim plugins. It&rsquo;s quite limited, and you have to jump through some hoops to get anything done, but I spent some time working through <a href=https://learnvimscriptthehardway.stevelosh.com/>This set of tutorials</a> to get to grips with it.</p>
+<h1 id=my-project>My Project<a href=#my-project class=hanchor arialabel=Anchor>&#8983;</a> </h1>
+<p>I figured that a cool (and potentially actually useful) extension to the Diary in VimWiki would be a habit tracker.</p>
+<p>I wanted to be able to define a set of habits, and have them pasted into Diary pages as a list of checkboxes. I then wanted to take those filled in checkbox lists and use them to generate a report of what habits had and hadn&rsquo;t been followed.</p>
+<p>The code (which you can find on <a href=https://github.com/Rasengangstarr/vimwikihabits>Github</a>) is an utter mess, but it just about works.</p>
+<h1 id=how-its-used>How its used<a href=#how-its-used class=hanchor arialabel=Anchor>&#8983;</a> </h1>
+<p>First, navigate to your vimwiki diary directory, and create a new file called habits.vim. Inside it, enter your habits as a new line seperated list:</p>
+<p><img src=https://rasengangstarr.github.io/Portfolio/images/vimwikihabits1.png alt=screenshot-1635963144></p>
+<p>Save this file, then enter one of your diary entries, (or create one using the vimwiki diary shortcuts:</p>
+<p><img src=https://rasengangstarr.github.io/Portfolio/images/vimwikihabits2.png alt=screenshot-1635963379></p>
+<p>Press :VimWikiHabitsInsert</p>
+<p><img src=https://rasengangstarr.github.io/Portfolio/images/vimwikihabits3.png alt=screenshot-1635963519></p>
+<p>This should paste your habits as a todo list in the diary entry - check or uncheck them by pressing + over the boxes.</p>
+<p>Then you can simply press :VimWikiHabitsGenerate to view the habit tracker at the bottom of the screen</p>
+<p><img src=https://rasengangstarr.github.io/Portfolio/images/vimwikihabits4.png alt=screenshot-1635963495></p>
+<h1 id=further-work>Further work<a href=#further-work class=hanchor arialabel=Anchor>&#8983;</a> </h1>
+<p>Having gotten the vim plugin bug, I made two further plugins:</p>
+<ul>
+<li><a href=https://github.com/Rasengangstarr/vascii>Vascii</a>, which utilizes the jp2a bash program to render an image file as ascii art directly into a document within vim</li>
+<li><a href=https://github.com/Rasengangstarr/Vimcats>Vimcats</a>, which takes an image from this <a href=https://cataas.com/cat>Random cat image API</a> and dumps it into a document within vim</li>
+</ul>
+<h1 id=conclusions>Conclusions<a href=#conclusions class=hanchor arialabel=Anchor>&#8983;</a> </h1>
+<p>I&rsquo;ve not done much with Vimscript since these projects, but I still use Vim every day. I&rsquo;m currently editing this document with the Vim extension for Visual Studio Code, I use a Vim plugin for Visual Studio when I&rsquo;m developing C# on Windows at work, and being able to quickly edit files on my home computer without leaving the terminal is awesome.</p>
+<p>It takes a while to learn Vim&rsquo;s keys, but once you get the hang of it everything becomes easier, and using the &lsquo;standard&rsquo; way of editing files feels like a huge step backwards.</p>
+<p>My biggest problem now is accidentally typing :w in the middle of text files when I&rsquo;m using notepad++ at work.</p>
+</div></div>
+<div class=pagination>
+<div class=pagination__title>
+<span class=pagination__title-h>Read other posts</span>
+<hr>
+</div>
+<div class=pagination__buttons>
+<span class="button next">
+<a href=https://rasengangstarr.github.io/Portfolio/projects/hugo-static-web-site/>
+<span class=button__text>Hugo Static Web Site</span>
+<span class=button__icon>→</span>
+</a>
+</span>
+</div>
+</div>
+</div>
+</div>
+<footer class=footer>
+<div class=footer__inner>
+<div class=copyright>
+<span>© 2022 Powered by <a href=http://gohugo.io>Hugo</a></span>
+<span>:: Theme made by <a href=https://twitter.com/panr>panr</a></span>
+</div>
+</div>
+</footer>
+<script src=https://rasengangstarr.github.io/Portfolio/assets/main.js></script>
+<script src=https://rasengangstarr.github.io/Portfolio/assets/prism.js></script>
+</div>
+</body>
+</html>
