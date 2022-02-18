@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Projects on Terminal</title><link>https://rasengangstarr.github.io/Portfolio/projects/</link><description>Recent content in Projects on Terminal</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 18 Feb 2022 17:30:32 +0000</lastBuildDate><atom:link href="https://rasengangstarr.github.io/Portfolio/projects/index.xml" rel="self" type="application/rss+xml"/><item><title>Hugo Static Web Site</title><link>https://rasengangstarr.github.io/Portfolio/projects/hugo-static-web-site/</link><pubDate>Fri, 18 Feb 2022 17:30:32 +0000</pubDate><guid>https://rasengangstarr.github.io/Portfolio/projects/hugo-static-web-site/</guid><description>I&amp;rsquo;ve wanted to make some kind of portfolio website / blog for a few years now.
+During some downtime at work (caused by a storm taking out the power where our Gitlab instance is stored), I got to googling around new javascript frameworks, looking for something other than the Vue.JS I already used at work to play around with this weekend.
+Somewhere down that rabbit hole, I started looking into static website frameworks.</description><content>&lt;p>I&amp;rsquo;ve wanted to make some kind of portfolio website / blog for a few years now.&lt;/p>
+&lt;p>During some downtime at work (caused by a storm taking out the power where our Gitlab instance is stored), I got to googling around new javascript frameworks, looking for something other than the Vue.JS I already used at work to play around with this weekend.&lt;/p>
+&lt;p>Somewhere down that rabbit hole, I started looking into static website frameworks. Remembering that long time portfolio project idea, I decided to have a play with &lt;a href="https://gohugo.io/">Hugo&lt;/a>.&lt;/p>
+&lt;p>I skim watched &lt;a href="https://www.youtube.com/watch?v=qtIqKaDlqXo&amp;amp;list=PLLAZ4kZ9dFpOnyRlyS-liKL5ReHDcj4G3">This series&lt;/a> on Youtube, then got to work.&lt;/p>
+&lt;h1 id="installation">Installation&lt;/h1>
+&lt;p>The official website told me i needed to use &lt;a href="https://brew.sh/">Homebrew&lt;/a> to install Hugo on my Linux machine. I think brew is the Mac-OS package manager, like apt or pacman, but anyway I haven&amp;rsquo;t used it before.&lt;/p>
+&lt;p>The installation process was&amp;hellip; icky:&lt;/p>
+&lt;pre tabindex="0">&lt;code>/bin/bash -c &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&amp;quot;
+test -d ~/.linuxbrew &amp;amp;&amp;amp; eval &amp;quot;$(~/.linuxbrew/bin/brew shellenv)&amp;quot;
+test -d /home/linuxbrew/.linuxbrew &amp;amp;&amp;amp; eval &amp;quot;$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)&amp;quot;
+test -r ~/.bash_profile &amp;amp;&amp;amp; echo &amp;quot;eval \&amp;quot;\$($(brew --prefix)/bin/brew shellenv)\&amp;quot;&amp;quot; &amp;gt;&amp;gt; ~/.bash_profile
+echo &amp;quot;eval \&amp;quot;\$($(brew --prefix)/bin/brew shellenv)\&amp;quot;&amp;quot; &amp;gt;&amp;gt; ~/.profile
+&lt;/code>&lt;/pre>&lt;p>Didn&amp;rsquo;t read it or check it. I&amp;rsquo;m sure its fine.&lt;/p>
+&lt;p>Anyway, once that was done I could run&lt;/p>
+&lt;pre tabindex="0">&lt;code>brew install hugo
+&lt;/code>&lt;/pre>&lt;p>And I was away.&lt;/p>
+&lt;h1 id="creating-the-site">Creating the site&lt;/h1>
+&lt;p>Hugo provides a bunch of commands for configuration etc.&lt;/p>
+&lt;p>I created a new directory for Hugo projects:&lt;/p>
+&lt;pre tabindex="0">&lt;code>mkdir HUGO
+&lt;/code>&lt;/pre>&lt;p>Then jumped in there and created a new site:&lt;/p>
+&lt;pre tabindex="0">&lt;code>cd HUGO
+hugo new site portfolio
+cd portfolio
+&lt;/code>&lt;/pre>&lt;p>And tested it worked by running:&lt;/p>
+&lt;pre tabindex="0">&lt;code>hugo server -D
+&lt;/code>&lt;/pre>&lt;h1 id="adding-a-theme">Adding a theme&lt;/h1>
+&lt;p>Next I added the &lt;a href="https://themes.gohugo.io/themes/hugo-theme-terminal/">terminal&lt;/a> theme to my site by cloning it&amp;rsquo;s github project into the themes directory of the project.&lt;/p>
+&lt;p>Following the instructions provided by the theme&amp;rsquo;s developer, i ran up the server again with:&lt;/p>
+&lt;pre tabindex="0">&lt;code>hugo server -t terminal
+&lt;/code>&lt;/pre>&lt;p>No idea what that -t option does, but it worked.&lt;/p>
+&lt;h1 id="messing-with-the-theme">Messing with the theme&lt;/h1>
+&lt;p>Top level configuration in Hugo is done in the config.toml file at the root directory of the project. Again, the theme developer provided some code to copy paste into there, with a bunch of parameters you can mess with.&lt;/p>
+&lt;p>For example, by default the theme renders the accents of the page in orange, so I messed with some different options they provided:&lt;/p>
+&lt;pre tabindex="0">&lt;code># [&amp;quot;orange&amp;quot;, &amp;quot;blue&amp;quot;, &amp;quot;red&amp;quot;, &amp;quot;green&amp;quot;, &amp;quot;pink&amp;quot;]
+themeColor = &amp;quot;blue&amp;quot;
+&lt;/code>&lt;/pre>&lt;p>I also didn&amp;rsquo;t like how everything was smushed to the left on the site, with an ugly bar in the middle, which didn&amp;rsquo;t look anything like the clean examples they&amp;rsquo;d provided:&lt;/p>
+&lt;p>&lt;img src="https://rasengangstarr.github.io/Portfolio/images/uglytheme.png" alt="Ugly offcenter default behaviour">&lt;/p>
+&lt;p>Again, looking in that &lt;strong>config.toml&lt;/strong> file I found:&lt;/p>
+&lt;pre tabindex="0">&lt;code># set theme to full screen width
+fullWidthTheme = false
+# center theme with default width
+centerTheme = true
+&lt;/code>&lt;/pre>&lt;p>Flipping that &lt;strong>centerTheme&lt;/strong> flag did the trick&lt;/p>
+&lt;h1 id="making-this-page">Making this page&lt;/h1>
+&lt;p>To create this page, I used Hugo&amp;rsquo;s command line tool:&lt;/p>
+&lt;pre tabindex="0">&lt;code>hugo new projects/hugo-static-web-site.md
+&lt;/code>&lt;/pre>&lt;p>This creates the page in a subdirectory called projects. I also wanted projects to behave as a list page, so scanning the config file, I found and modified this:&lt;/p>
+&lt;pre tabindex="0">&lt;code>[[languages.en.menu.main]]
+identifier = &amp;quot;about&amp;quot;
+name = &amp;quot;About&amp;quot;
+url = &amp;quot;/about&amp;quot;
+&lt;/code>&lt;/pre>&lt;p>So that &lt;em>Projects&lt;/em> appears in the top bar.&lt;/p>
+&lt;p>Finally, I used this &lt;a href="https://www.nextpertise.net/posts/210424_hugo_markdown_cheatsheet/">Cheatsheet&lt;/a> to make the page.&lt;/p>
+&lt;p>I also wanted to see what it would look like on my phone, so opened a port in the Pop OS (Ubuntu) firewall:&lt;/p>
+&lt;pre tabindex="0">&lt;code>sudo ufw allow 1313
+&lt;/code>&lt;/pre>&lt;p>then ran the hugo server command with additional &amp;ndash;bind and &amp;ndash;baseURL parameters.&lt;/p>
+&lt;p>&lt;img src="https://rasengangstarr.github.io/Portfolio/images/mobilehugo.png" alt="It looks cool on mobile too">&lt;/p>
+&lt;p>I really like how the menu looks on the mobile version.&lt;/p>
+&lt;h1 id="next-steps-and-conclusion">Next steps and conclusion&lt;/h1>
+&lt;p>Next I&amp;rsquo;ll probably figure out the best way to upload this to github pages and host it there.&lt;/p>
+&lt;p>I was shocked at how easy this was to set up. I set everything up and created this page in less than a couple of hours. I&amp;rsquo;ll probably go back and write up some recent projects, sort out the About Page, and write up any future projects on here.&lt;/p></content></item></channel></rss>
