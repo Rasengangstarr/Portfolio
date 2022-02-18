@@ -52,7 +52,7 @@ Enthusiastic about process improvement and free and open source software.
 * Have recently messed around with and done small projects in __C++__, __Rust__, __Hugo__, __F#__, __Powershell__, __Vimscript__
 * Have at one point used __Node__, __PL/SQL__, __C__, __PHP__, __Golang__, __SQLServer__, __Haskell__, __Matlab__, __Octave__, __Prolog__, __ASP.net__, __Visual Basic__
 * Absolutely hopeless with __CSS__
-* Visual Studio, VS Code, Vim, MySQL Workbench, GNU/Linux 
+* Visual Studio, VS Code, Vim, MySQL Workbench, GNU/Linux, Git, Github, Gitlab, Sourcetree 
 * Agile development
-* An amateur interest in Philosophy, History, Linux Distro and DE hopping, and fantasy/science fiction books.
+* An amateur interest in Philosophy, History, Linux Distro and DE hopping, Gaming and Fantasy/Science Fiction books.
 
