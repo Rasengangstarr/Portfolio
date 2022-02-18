@@ -1,7 +1,8 @@
 baseurl = "https://rasengangstarr.github.io/Portfolio/"
 languageCode = "en-us"
 theme = "terminal"
-paginate = 1 
+paginate = 1
+canonifyURLs = true
 
 [params]
   # dir name of your main content (default is `content/posts`).
