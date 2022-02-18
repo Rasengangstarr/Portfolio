@@ -1,4 +1,4 @@
-baseurl = "/"
+baseurl = "https://rasengangstarr.github.io/Portfolio/"
 languageCode = "en-us"
 theme = "terminal"
 paginate = 1 
