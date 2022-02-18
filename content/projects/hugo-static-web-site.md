@@ -5,6 +5,8 @@ draft: false
 summary: "How I made this site"
 ---
 
+[Github Page](https://github.com/Rasengangstarr/Portfolio)
+
 I've wanted to make some kind of portfolio website / blog for a few years now.
 
 During some downtime at work (caused by a storm taking out the power where our Gitlab instance is stored), I got to googling around new javascript frameworks, looking for something other than the Vue.JS I already used at work to play around with this weekend.
