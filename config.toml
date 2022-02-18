@@ -1,13 +1,13 @@
 baseurl = "https://rasengangstarr.github.io/Portfolio/"
 languageCode = "en-us"
 theme = "terminal"
-paginate = 1
+paginate = 5
 canonifyURLs = true
 
 [params]
   # dir name of your main content (default is `content/posts`).
   # the list of set content will show up on your index page (baseurl).
-  contentTypeName = "posts"
+  contentTypeName = "projects"
 
   # ["orange", "blue", "red", "green", "pink"]
   themeColor = "blue"
@@ -64,7 +64,7 @@ canonifyURLs = true
 [languages]
   [languages.en]
     languageName = "English"
-    title = "Terminal"
+    title = "Rasengangstarr"
     subtitle = "A simple, retro theme for Hugo"
     owner = ""
     keywords = ""
