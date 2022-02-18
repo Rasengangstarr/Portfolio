@@ -23,15 +23,15 @@ Enthusiastic about process improvement and free and open source software.
 * Contributing to maintainance of legacy __DIBOL__ code
 
 ## Software Developer - Active Navigation - February 2018 - November 2019
-* Developing C#, Asp.NET and WPF applications for the Discovery and Analysis of sensitive file data.
-* Integration auto testing with Specflow, UI auto testing with Selenium
-* Using microservice architecture, Gitflow with Git, SOLID principles.
-* Managing Continuous Integration with Teamcity, migrating deployments to Docker, helping customers with upgrades.
+* Developing __C#__, __Asp.NET__ and __WPF__ applications for the Discovery and Analysis of sensitive file data.
+* Integration auto testing with __Specflow__, UI auto testing with __Selenium__
+* Using microservice architecture, __Gitflow__ with __Git__, __SOLID__ principles.
+* Managing Continuous Integration with __Teamcity__, migrating deployments to __Docker__, helping customers with upgrades.
 * Limited exposure to ElasticSearch, Mongo Db, Eventstore, Eventsourcing, Kubernetes.
 
 ## Software Developer - DP World Southampton - August 2016 - February 2018
-* Developing user applications, web and Windows services and hardware emulation software in C#.net and VB.net in an Agile manner
-* Writing views and sprocs for SQL Server
+* Developing user applications, web and Windows services and hardware emulation software in __C#.net__ and __VB.net__ in an Agile manner
+* Writing views and sprocs for __SQL Server__
 * Unit testing
 * Using technologies such as WPF, WCF, Rhino, DI Containers, as well as SOLID design methodology
 
@@ -49,7 +49,7 @@ Enthusiastic about process improvement and free and open source software.
 
 * High level of skill in __C#.NET__, __Javascript__, __Vue.js__
 * Proficient in __HTML5__, __MySQL__, __Python__, __DIBOL__, __ASP.net__, __Bash__
-* Have recently messed around with and done small projects in __C++__, __Rust__, __Hugo__, __F#__, __Powershell__, __Vimscript__
+* Have recently messed around with and done small projects in __C++__, __Rust__, __Hugo__, __F#__, __Powershell__, __Vimscript__, __Xamarin__
 * Have at one point used __Node__, __PL/SQL__, __C__, __PHP__, __Golang__, __SQLServer__, __Haskell__, __Matlab__, __Octave__, __Prolog__, __ASP.net__, __Visual Basic__
 * Absolutely hopeless with __CSS__
 * Visual Studio, VS Code, Vim, MySQL Workbench, GNU/Linux, Git, Github, Gitlab, Sourcetree 
