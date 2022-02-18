@@ -1,8 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Rasengangstarr</title><link>https://rasengangstarr.github.io/Portfolio/</link><description>Recent content on Rasengangstarr</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 18 Feb 2022 20:12:30 +0000</lastBuildDate><atom:link href="https://rasengangstarr.github.io/Portfolio/index.xml" rel="self" type="application/rss+xml"/><item><title>Vim Wiki Habits</title><link>https://rasengangstarr.github.io/Portfolio/projects/vim-habits/</link><pubDate>Fri, 18 Feb 2022 20:12:30 +0000</pubDate><guid>https://rasengangstarr.github.io/Portfolio/projects/vim-habits/</guid><description>Github Page.
-A few months back, I decided I was going to finally force myself to learn Vim.
-I ended up building a 60% keyboard with snap in switches (which was a fun project in and of itself), which crucially didn&amp;rsquo;t have any arrow keys, forcing me to learn vim&amp;rsquo;s hjkl control system.
-Anyway, somewhere down that rabbit hole, I discovered Vim Wiki and Vimscript.
-Vim Wiki Vim Wiki is a vim extension that allows you to create markdown documents that are rendered in vim.</description><content>&lt;p>&lt;a href="https://github.com/Rasengangstarr/vimwikihabits">Github Page&lt;/a>.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Rasengangstarr</title><link>https://rasengangstarr.github.io/Portfolio/</link><description>Recent content on Rasengangstarr</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 18 Feb 2022 20:12:30 +0000</lastBuildDate><atom:link href="https://rasengangstarr.github.io/Portfolio/index.xml" rel="self" type="application/rss+xml"/><item><title>Vim Wiki Habits</title><link>https://rasengangstarr.github.io/Portfolio/projects/vim-habits/</link><pubDate>Fri, 18 Feb 2022 20:12:30 +0000</pubDate><guid>https://rasengangstarr.github.io/Portfolio/projects/vim-habits/</guid><description>A habit tracker plugin for Vim</description><content>&lt;p>&lt;a href="https://github.com/Rasengangstarr/vimwikihabits">Github Page&lt;/a>.&lt;/p>
 &lt;p>A few months back, I decided I was going to finally force myself to learn &lt;a href="https://www.vim.org/">Vim&lt;/a>.&lt;/p>
 &lt;p>I ended up building a 60% keyboard with snap in switches (which was a fun project in and of itself), which crucially didn&amp;rsquo;t have any arrow keys, forcing me to learn vim&amp;rsquo;s hjkl control system.&lt;/p>
 &lt;p>&lt;img src="https://rasengangstarr.github.io/Portfolio/images/mykeyboard.jpg" alt="My Keyboard">&lt;/p>
@@ -35,9 +31,7 @@ Vim Wiki Vim Wiki is a vim extension that allows you to create markdown document
 &lt;h1 id="conclusions">Conclusions&lt;/h1>
 &lt;p>I&amp;rsquo;ve not done much with Vimscript since these projects, but I still use Vim every day. I&amp;rsquo;m currently editing this document with the Vim extension for Visual Studio Code, I use a Vim plugin for Visual Studio when I&amp;rsquo;m developing C# on Windows at work, and being able to quickly edit files on my home computer without leaving the terminal is awesome.&lt;/p>
 &lt;p>It takes a while to learn Vim&amp;rsquo;s keys, but once you get the hang of it everything becomes easier, and using the &amp;lsquo;standard&amp;rsquo; way of editing files feels like a huge step backwards.&lt;/p>
-&lt;p>My biggest problem now is accidentally typing :w in the middle of text files when I&amp;rsquo;m using notepad++ at work.&lt;/p></content></item><item><title>Hugo Static Web Site</title><link>https://rasengangstarr.github.io/Portfolio/projects/hugo-static-web-site/</link><pubDate>Fri, 18 Feb 2022 17:30:32 +0000</pubDate><guid>https://rasengangstarr.github.io/Portfolio/projects/hugo-static-web-site/</guid><description>I&amp;rsquo;ve wanted to make some kind of portfolio website / blog for a few years now.
-During some downtime at work (caused by a storm taking out the power where our Gitlab instance is stored), I got to googling around new javascript frameworks, looking for something other than the Vue.JS I already used at work to play around with this weekend.
-Somewhere down that rabbit hole, I started looking into static website frameworks.</description><content>&lt;p>I&amp;rsquo;ve wanted to make some kind of portfolio website / blog for a few years now.&lt;/p>
+&lt;p>My biggest problem now is accidentally typing :w in the middle of text files when I&amp;rsquo;m using notepad++ at work.&lt;/p></content></item><item><title>Hugo Static Web Site</title><link>https://rasengangstarr.github.io/Portfolio/projects/hugo-static-web-site/</link><pubDate>Fri, 18 Feb 2022 17:30:32 +0000</pubDate><guid>https://rasengangstarr.github.io/Portfolio/projects/hugo-static-web-site/</guid><description>How I made this site</description><content>&lt;p>I&amp;rsquo;ve wanted to make some kind of portfolio website / blog for a few years now.&lt;/p>
 &lt;p>During some downtime at work (caused by a storm taking out the power where our Gitlab instance is stored), I got to googling around new javascript frameworks, looking for something other than the Vue.JS I already used at work to play around with this weekend.&lt;/p>
 &lt;p>Somewhere down that rabbit hole, I started looking into static website frameworks. Remembering that long time portfolio project idea, I decided to have a play with &lt;a href="https://gohugo.io/">Hugo&lt;/a>.&lt;/p>
 &lt;p>I skim watched &lt;a href="https://www.youtube.com/watch?v=qtIqKaDlqXo&amp;amp;list=PLLAZ4kZ9dFpOnyRlyS-liKL5ReHDcj4G3">This series&lt;/a> on Youtube, then got to work.&lt;/p>
@@ -98,4 +92,58 @@ url = &amp;quot;/about&amp;quot;
 &lt;p>I really like how the menu looks on the mobile version.&lt;/p>
 &lt;h1 id="next-steps-and-conclusion">Next steps and conclusion&lt;/h1>
 &lt;p>Next I&amp;rsquo;ll probably figure out the best way to upload this to github pages and host it there.&lt;/p>
-&lt;p>I was shocked at how easy this was to set up. I set everything up and created this page in less than a couple of hours. I&amp;rsquo;ll probably go back and write up some recent projects, sort out the About Page, and write up any future projects on here.&lt;/p></content></item><item><title>About</title><link>https://rasengangstarr.github.io/Portfolio/about/</link><pubDate>Fri, 18 Feb 2022 00:00:00 +0000</pubDate><guid>https://rasengangstarr.github.io/Portfolio/about/</guid><description>Hello World</description><content>&lt;h1 id="hello-world">Hello World&lt;/h1></content></item></channel></rss>
+&lt;p>I was shocked at how easy this was to set up. I set everything up and created this page in less than a couple of hours. I&amp;rsquo;ll probably go back and write up some recent projects, sort out the About Page, and write up any future projects on here.&lt;/p></content></item><item><title>Resume</title><link>https://rasengangstarr.github.io/Portfolio/about/resume/</link><pubDate>Fri, 18 Feb 2022 00:00:00 +0000</pubDate><guid>https://rasengangstarr.github.io/Portfolio/about/resume/</guid><description>David Williams raseng@protonmail.com
+Software Developer with a work background in front and backend web development and desktop applications development.
+Enthusiastic about process improvement and free and open source software.
+Experience Senior Software Engineer - Ibcos Computers - November 2019 - Present Developing C# APIs and associated Vue.JS web applications Architecting, acting as technical lead and guiding the adoption of agile processes on a b2b ecommerce project Planning and leading adoption of modern Git processes Spearheading use of Specflow for autotesting and training QA operatives and developers in it&amp;rsquo;s use Developing skills in Jenkins, Linux System Administration and team leadership Contributing to maintainance of legacy DIBOL code Software Developer - Active Navigation - February 2018 - November 2019 Developing C#, Asp.</description><content>&lt;h1 id="david-williams">David Williams&lt;/h1>
+&lt;p>&lt;a href="mailto:raseng@protonmail.com">raseng@protonmail.com&lt;/a>&lt;/p>
+&lt;p>Software Developer with a work background in front and backend web development and desktop applications development.&lt;/p>
+&lt;p>Enthusiastic about process improvement and free and open source software.&lt;/p>
+&lt;h2 id="experience">Experience&lt;/h2>
+&lt;h2 id="senior-software-engineer---ibcos-computers---november-2019---present">Senior Software Engineer - Ibcos Computers - November 2019 - Present&lt;/h2>
+&lt;ul>
+&lt;li>Developing &lt;strong>C# APIs&lt;/strong> and associated &lt;strong>Vue.JS&lt;/strong> web applications&lt;/li>
+&lt;li>Architecting, acting as technical lead and guiding the adoption of &lt;strong>agile&lt;/strong> processes on a b2b ecommerce project&lt;/li>
+&lt;li>Planning and leading adoption of modern &lt;strong>Git&lt;/strong> processes&lt;/li>
+&lt;li>Spearheading use of &lt;strong>Specflow&lt;/strong> for autotesting and training QA operatives and developers in it&amp;rsquo;s use&lt;/li>
+&lt;li>Developing skills in &lt;strong>Jenkins&lt;/strong>, &lt;strong>Linux System Administration&lt;/strong> and team leadership&lt;/li>
+&lt;li>Contributing to maintainance of legacy &lt;strong>DIBOL&lt;/strong> code&lt;/li>
+&lt;/ul>
+&lt;h2 id="software-developer---active-navigation---february-2018---november-2019">Software Developer - Active Navigation - February 2018 - November 2019&lt;/h2>
+&lt;ul>
+&lt;li>Developing C#, Asp.NET and WPF applications for the Discovery and Analysis of sensitive file data.&lt;/li>
+&lt;li>Integration auto testing with Specflow, UI auto testing with Selenium&lt;/li>
+&lt;li>Using microservice architecture, Gitflow with Git, SOLID principles.&lt;/li>
+&lt;li>Managing Continuous Integration with Teamcity, migrating deployments to Docker, helping customers with upgrades.&lt;/li>
+&lt;li>Limited exposure to ElasticSearch, Mongo Db, Eventstore, Eventsourcing, Kubernetes.&lt;/li>
+&lt;/ul>
+&lt;h2 id="software-developer---dp-world-southampton---august-2016---february-2018">Software Developer - DP World Southampton - August 2016 - February 2018&lt;/h2>
+&lt;ul>
+&lt;li>Developing user applications, web and Windows services and hardware emulation software in C#.net and VB.net in an Agile manner&lt;/li>
+&lt;li>Writing views and sprocs for SQL Server&lt;/li>
+&lt;li>Unit testing&lt;/li>
+&lt;li>Using technologies such as WPF, WCF, Rhino, DI Containers, as well as SOLID design methodology&lt;/li>
+&lt;/ul>
+&lt;h2 id="other-roles">Other Roles&lt;/h2>
+&lt;ul>
+&lt;li>Software Developer - Blueteq Ltd - June 2015 - July 2016&lt;/li>
+&lt;li>IT Helper - University of Portsmouth - August 2014 - June 2015&lt;/li>
+&lt;li>Software Developer - University of Portsmouth - June 2013 - August 2014&lt;/li>
+&lt;li>Network and IT help desk - Equinix Services Limited - Summer of 2011&lt;/li>
+&lt;/ul>
+&lt;h2 id="education">Education&lt;/h2>
+&lt;ul>
+&lt;li>University Of Portsmouth - BSc (Hons) Computer Science w/ Year In Industry 2011 - 2015 - First Class Honours&lt;/li>
+&lt;li>Sixth Form College Farnborough - 2009 - 2011 - 5 A-Levels&lt;/li>
+&lt;/ul>
+&lt;h2 id="skills">Skills&lt;/h2>
+&lt;ul>
+&lt;li>High level of skill in &lt;strong>C#.NET&lt;/strong>, &lt;strong>Javascript&lt;/strong>, &lt;strong>Vue.js&lt;/strong>&lt;/li>
+&lt;li>Proficient in &lt;strong>HTML5&lt;/strong>, &lt;strong>MySQL&lt;/strong>, &lt;strong>Python&lt;/strong>, &lt;strong>DIBOL&lt;/strong>, &lt;strong>ASP.net&lt;/strong>, &lt;strong>Bash&lt;/strong>&lt;/li>
+&lt;li>Have recently messed around with and done small projects in &lt;strong>C++&lt;/strong>, &lt;strong>Rust&lt;/strong>, &lt;strong>Hugo&lt;/strong>, &lt;strong>F#&lt;/strong>, &lt;strong>Powershell&lt;/strong>, &lt;strong>Vimscript&lt;/strong>&lt;/li>
+&lt;li>Have at one point used &lt;strong>Node&lt;/strong>, &lt;strong>PL/SQL&lt;/strong>, &lt;strong>C&lt;/strong>, &lt;strong>PHP&lt;/strong>, &lt;strong>Golang&lt;/strong>, &lt;strong>SQLServer&lt;/strong>, &lt;strong>Haskell&lt;/strong>, &lt;strong>Matlab&lt;/strong>, &lt;strong>Octave&lt;/strong>, &lt;strong>Prolog&lt;/strong>, &lt;strong>ASP.net&lt;/strong>, &lt;strong>Visual Basic&lt;/strong>&lt;/li>
+&lt;li>Absolutely hopeless with &lt;strong>CSS&lt;/strong>&lt;/li>
+&lt;li>Visual Studio, VS Code, Vim, MySQL Workbench, GNU/Linux&lt;/li>
+&lt;li>Agile development&lt;/li>
+&lt;li>An amateur interest in Philosophy, History, Linux Distro and DE hopping, and fantasy/science fiction books.&lt;/li>
+&lt;/ul></content></item></channel></rss>
