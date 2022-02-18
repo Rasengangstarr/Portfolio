@@ -2,6 +2,7 @@
 title: "Vim Wiki Habits"
 date: 2022-02-18T20:12:30Z
 draft: false 
+summary: "A habit tracker plugin for Vim"
 ---
 
 [Github Page](https://github.com/Rasengangstarr/vimwikihabits).

@@ -1,7 +1,8 @@
 ---
 title: "Hugo Static Web Site"
 date: 2022-02-18T17:30:32Z
-draft: false 
+draft: false
+summary: "How I made this site"
 ---
 
 I've wanted to make some kind of portfolio website / blog for a few years now.
