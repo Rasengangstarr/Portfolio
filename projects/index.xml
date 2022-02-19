@@ -1,4 +1,216 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Projects on Rasengangstarr</title><link>https://rasengangstarr.github.io/Portfolio/projects/</link><description>Recent content in Projects on Rasengangstarr</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 18 Feb 2022 20:12:30 +0000</lastBuildDate><atom:link href="https://rasengangstarr.github.io/Portfolio/projects/index.xml" rel="self" type="application/rss+xml"/><item><title>Vim Wiki Habits</title><link>https://rasengangstarr.github.io/Portfolio/projects/vim-habits/</link><pubDate>Fri, 18 Feb 2022 20:12:30 +0000</pubDate><guid>https://rasengangstarr.github.io/Portfolio/projects/vim-habits/</guid><description>A habit tracker plugin for Vim</description><content>&lt;p>&lt;a href="https://github.com/Rasengangstarr/vimwikihabits">Github Page&lt;/a>.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Projects on Rasengangstarr</title><link>https://rasengangstarr.github.io/Portfolio/projects/</link><description>Recent content in Projects on Rasengangstarr</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 19 Feb 2022 14:34:18 +0000</lastBuildDate><atom:link href="https://rasengangstarr.github.io/Portfolio/projects/index.xml" rel="self" type="application/rss+xml"/><item><title>React Parliament Viewer</title><link>https://rasengangstarr.github.io/Portfolio/projects/parliament-viewer/</link><pubDate>Sat, 19 Feb 2022 14:34:18 +0000</pubDate><guid>https://rasengangstarr.github.io/Portfolio/projects/parliament-viewer/</guid><description>Learning React.JS by building a view of the UK Parliament API</description><content>&lt;p>&lt;a href="https://github.com/Rasengangstarr/ParliamentViewer">Github Page&lt;/a>&lt;/p>
+&lt;p>&lt;img src="https://rasengangstarr.github.io/Portfolio/images/parliamentphase1.png" alt="Phase 1 Screenshot">&lt;/p>
+&lt;p>Before I got distracted by &lt;a href="../hugo-static-web-site">making this Hugo site&lt;/a>, I had planned to spend the weekend learning a new Javascript framework.&lt;/p>
+&lt;p>My initial choice was &lt;a href="https://www.solidjs.com/">Solid.js&lt;/a>, but all of the learning resources for it seem to expect you to already know &lt;a href="https://reactjs.org/">React.JS&lt;/a>, so I went for that instead.&lt;/p>
+&lt;p>I found out yesterday that the UK Parliament has an unexpectedly extensive &lt;a href="https://members-api.parliament.uk/index.html">API&lt;/a>, which you don&amp;rsquo;t even need authentication to use, so I decided my project would be some view on data about Members of Parliament.&lt;/p>
+&lt;p>This document is written from my perspective as a Vue user, so I&amp;rsquo;ll likely only point something out where its different.&lt;/p>
+&lt;h1 id="installation-and-setup">Installation and Setup&lt;/h1>
+&lt;p>The first step was getting the tools for React development installed. This requires you to install npm, then from there install the create-react-app package.&lt;/p>
+&lt;p>I had all sorts of trouble with the version in the Ubuntu repositories, so downloaded their latest stable tar file and followed &lt;a href="https://stackoverflow.com/questions/63312642/how-to-install-node-tar-xz-file-in-linux">these instructions&lt;/a> to get it installed.&lt;/p>
+&lt;p>Once that was in place, running&lt;/p>
+&lt;pre tabindex="0">&lt;code>create-react-app ParliamentViewer
+&lt;/code>&lt;/pre>&lt;p>created a new templated app.&lt;/p>
+&lt;p>I followed the first part of &lt;a href="https://www.youtube.com/watch?v=Dorf8i6lCuk">this tutorial&lt;/a>, which recommended deleting some of analytics and test stuff that comes by default, which I did (I&amp;rsquo;m not planning to unit test any of this for the time being), and I followed the tutorial to the point where I had a sub component and a main App component.&lt;/p>
+&lt;h1 id="styling">Styling&lt;/h1>
+&lt;p>I&amp;rsquo;m appauling at CSS, but i created some using the &lt;a href="https://www.nordtheme.com/">Nord&lt;/a> color scheme i&amp;rsquo;ve been ricing everything i use with recently:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-css" data-lang="css">&lt;span style="color:#f92672">body&lt;/span> {
+&lt;span style="color:#66d9ef">background-color&lt;/span>: &lt;span style="color:#ae81ff">#2E3440&lt;/span>;
+&lt;span style="color:#66d9ef">color&lt;/span>: &lt;span style="color:#ae81ff">#e5e9f0&lt;/span>;
+&lt;span style="color:#66d9ef">font-family&lt;/span>:&lt;span style="color:#e6db74">&amp;#39;Lucida Sans&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;Lucida Sans Regular&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;Lucida Grande&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;Lucida Sans Unicode&amp;#39;&lt;/span>, Geneva, Verdana, &lt;span style="color:#66d9ef">sans-serif&lt;/span>;
+}
+.&lt;span style="color:#a6e22e">card&lt;/span> {
+&lt;span style="color:#66d9ef">background-color&lt;/span>: &lt;span style="color:#ae81ff">#D8DEE9&lt;/span>;
+&lt;span style="color:#66d9ef">color&lt;/span>: &lt;span style="color:#ae81ff">#434c5e&lt;/span>;
+&lt;span style="color:#66d9ef">margin-left&lt;/span>:&lt;span style="color:#ae81ff">3&lt;/span>&lt;span style="color:#66d9ef">em&lt;/span>;
+&lt;span style="color:#66d9ef">margin-bottom&lt;/span>:&lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#66d9ef">em&lt;/span>;
+&lt;span style="color:#66d9ef">border-radius&lt;/span>: &lt;span style="color:#ae81ff">0.7&lt;/span>&lt;span style="color:#66d9ef">em&lt;/span>;
+&lt;span style="color:#66d9ef">padding&lt;/span>: &lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#66d9ef">em&lt;/span>;
+&lt;span style="color:#66d9ef">padding-bottom&lt;/span>: &lt;span style="color:#ae81ff">3&lt;/span>&lt;span style="color:#66d9ef">em&lt;/span>;
+&lt;span style="color:#66d9ef">padding-top&lt;/span>: &lt;span style="color:#ae81ff">0.1&lt;/span>&lt;span style="color:#66d9ef">em&lt;/span>;
+&lt;span style="color:#66d9ef">width&lt;/span>: &lt;span style="color:#ae81ff">20&lt;/span>&lt;span style="color:#66d9ef">em&lt;/span>;
+&lt;span style="color:#66d9ef">box-shadow&lt;/span>: &lt;span style="color:#ae81ff">5&lt;/span>&lt;span style="color:#66d9ef">px&lt;/span> &lt;span style="color:#ae81ff">5&lt;/span>&lt;span style="color:#66d9ef">px&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>&lt;span style="color:#66d9ef">px&lt;/span> &lt;span style="color:#ae81ff">#1D2330&lt;/span>;
+}
+.&lt;span style="color:#a6e22e">card-actions&lt;/span>
+{
+&lt;span style="color:#66d9ef">float&lt;/span>:&lt;span style="color:#66d9ef">right&lt;/span>;
+}
+.&lt;span style="color:#a6e22e">button&lt;/span> {
+&lt;span style="color:#66d9ef">font-size&lt;/span>: &lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#66d9ef">em&lt;/span>;
+&lt;span style="color:#66d9ef">padding&lt;/span>: &lt;span style="color:#ae81ff">.5&lt;/span>&lt;span style="color:#66d9ef">em&lt;/span>;
+&lt;span style="color:#66d9ef">background-color&lt;/span>: &lt;span style="color:#ae81ff">#4c566a&lt;/span>;
+&lt;span style="color:#66d9ef">color&lt;/span>: &lt;span style="color:#ae81ff">#D8DEE9&lt;/span>;
+&lt;span style="color:#66d9ef">font-weight&lt;/span>:&lt;span style="color:#ae81ff">500&lt;/span>;
+&lt;span style="color:#66d9ef">border-radius&lt;/span>: &lt;span style="color:#ae81ff">0.5&lt;/span>&lt;span style="color:#66d9ef">em&lt;/span>;
+&lt;span style="color:#66d9ef">padding-left&lt;/span>: &lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#66d9ef">em&lt;/span>;
+&lt;span style="color:#66d9ef">padding-right&lt;/span>: &lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#66d9ef">em&lt;/span>;
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="structure">Structure&lt;/h1>
+&lt;p>In the first instance, my application is structured as follows:&lt;/p>
+&lt;script async type="application/javascript" src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js">
+var config = {
+startOnLoad:true,
+theme:'dark',
+align:'center'
+};
+mermaid.initialize(config);
+&lt;/script>
+&lt;div class="mermaid">
+graph TD;
+App-->MemberList;
+MemberList-->MemberCard1;
+MemberList-->MemberCard2;
+MemberList-->MemberCard3;
+&lt;/div>
+&lt;ul>
+&lt;li>Each Member Card is responsible for rendering the name of the Member of Parliament.&lt;/li>
+&lt;li>The Member List is responsible for fetching the Members in batches, then rendering the Card Elements.&lt;/li>
+&lt;li>The App is the root level with a single Member List&lt;/li>
+&lt;/ul>
+&lt;h1 id="member-card">Member Card&lt;/h1>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="color:#66d9ef">function&lt;/span> &lt;span style="color:#a6e22e">MemberCard&lt;/span>(&lt;span style="color:#a6e22e">props&lt;/span>) {
+&lt;span style="color:#66d9ef">return&lt;/span> (
+&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#a6e22e">div&lt;/span> &lt;span style="color:#a6e22e">className&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;card&amp;#34;&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span>
+&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#a6e22e">h2&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span>{&lt;span style="color:#a6e22e">props&lt;/span>.&lt;span style="color:#a6e22e">name&lt;/span>}&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">/h2&amp;gt;&lt;/span>
+&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#a6e22e">div&lt;/span> &lt;span style="color:#a6e22e">className&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;card-actions&amp;#34;&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span>
+&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#a6e22e">button&lt;/span> &lt;span style="color:#a6e22e">className&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;button&amp;#34;&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">Details&lt;/span>&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">/button&amp;gt;&lt;/span>
+&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">/div&amp;gt;&lt;/span>
+&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">/div&amp;gt;&lt;/span>
+);
+}
+&lt;span style="color:#66d9ef">export&lt;/span> &lt;span style="color:#66d9ef">default&lt;/span> &lt;span style="color:#a6e22e">MemberCard&lt;/span>;
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Here we can see how a basic React component is laid out. It struck me as significantly less verbose than it would be in Vue.&lt;/p>
+&lt;p>The props object is passed in by the parent, and we can get the individual properties we passed in off it.&lt;/p>
+&lt;h1 id="member-list">Member List&lt;/h1>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-javascript" data-lang="javascript"> &lt;span style="color:#66d9ef">return&lt;/span> (
+&lt;span style="color:#f92672">&amp;lt;&amp;gt;&lt;/span>
+&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#a6e22e">h2&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">Members&lt;/span> &lt;span style="color:#66d9ef">of&lt;/span> &lt;span style="color:#a6e22e">Parliament&lt;/span>&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">/h2&amp;gt;&lt;/span>
+{&lt;span style="color:#a6e22e">Members&lt;/span>.&lt;span style="color:#a6e22e">map&lt;/span>((&lt;span style="color:#a6e22e">item&lt;/span>, &lt;span style="color:#a6e22e">id&lt;/span>) =&amp;gt; {
+&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#a6e22e">MemberCard&lt;/span> &lt;span style="color:#a6e22e">name&lt;/span>&lt;span style="color:#f92672">=&lt;/span>{&lt;span style="color:#a6e22e">item&lt;/span>.&lt;span style="color:#a6e22e">value&lt;/span>.&lt;span style="color:#a6e22e">nameDisplayAs&lt;/span>} &lt;span style="color:#f92672">/&amp;gt;&lt;/span>;
+})}
+&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">/&amp;gt;&lt;/span>
+);
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Here we can see that property being passed in to &amp;lsquo;name&amp;rsquo; on the MemberCard. I&amp;rsquo;m mapping over the Members array to show each item in it.&lt;/p>
+&lt;p>Again, much more terse than the v-for syntax in Vue, plus its native Javascript, which is cool and seems like it could be really powerful (could you reduce over an array like this? or filter?)&lt;/p>
+&lt;p>The rest of this file is where most of the new/complicated stuff is.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="color:#66d9ef">import&lt;/span> &lt;span style="color:#a6e22e">React&lt;/span>, { &lt;span style="color:#a6e22e">useState&lt;/span>, &lt;span style="color:#a6e22e">useEffect&lt;/span> } &lt;span style="color:#a6e22e">from&lt;/span> &lt;span style="color:#e6db74">&amp;#34;react&amp;#34;&lt;/span>;
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>We import useState and useEffect at the start of the file.&lt;/p>
+&lt;p>useState seems to have the same function as the data section in a Vue component would, though I may be wrong.&lt;/p>
+&lt;p>It get&amp;rsquo;s used like this:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="color:#66d9ef">const&lt;/span> [&lt;span style="color:#a6e22e">Members&lt;/span>, &lt;span style="color:#a6e22e">fetchMembers&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">useState&lt;/span>([]);
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Which as far as I can tell says: use fetchMembers to write the state of the Members object. Could Members now be used elsewhere in the application? I&amp;rsquo;m not sure.&lt;/p>
+&lt;p>useEffect, as far as I can tell from the documentation, is called every time the page is rendered - when I add more functionality, I need to check its not calling this every time something happens.&lt;/p>
+&lt;pre tabindex="0">&lt;code> useEffect(() =&amp;gt; {
+getAllMembers();
+}, []);
+&lt;/code>&lt;/pre>&lt;p>It may be more appropriate to use some kind of on mount method.&lt;/p>
+&lt;p>At any rate, this get&amp;rsquo;s called when the page loads and calls my logic:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-javascript" data-lang="javascript">
+&lt;span style="color:#66d9ef">function&lt;/span> &lt;span style="color:#a6e22e">getAllMembers&lt;/span>() {
+&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">numMembers&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">650&lt;/span>;
+&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">batchSize&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">20&lt;/span>;
+&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">numBatches&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">numMembers&lt;/span> &lt;span style="color:#f92672">/&lt;/span> &lt;span style="color:#a6e22e">batchSize&lt;/span>;
+&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">currentBatch&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">allMembers&lt;/span> &lt;span style="color:#f92672">=&lt;/span> [];
+&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">promises&lt;/span> &lt;span style="color:#f92672">=&lt;/span> [];
+&lt;span style="color:#66d9ef">while&lt;/span> (&lt;span style="color:#a6e22e">currentBatch&lt;/span> &lt;span style="color:#f92672">&amp;lt;&lt;/span> &lt;span style="color:#a6e22e">numBatches&lt;/span>) {
+&lt;span style="color:#a6e22e">promises&lt;/span>.&lt;span style="color:#a6e22e">push&lt;/span>(&lt;span style="color:#a6e22e">getMemberBatch&lt;/span>(&lt;span style="color:#a6e22e">currentBatch&lt;/span>))
+&lt;span style="color:#a6e22e">currentBatch&lt;/span> &lt;span style="color:#f92672">+=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>;
+}
+Promise.&lt;span style="color:#a6e22e">all&lt;/span>(&lt;span style="color:#a6e22e">promises&lt;/span>).&lt;span style="color:#a6e22e">then&lt;/span>(&lt;span style="color:#66d9ef">function&lt;/span>(&lt;span style="color:#a6e22e">values&lt;/span>)
+{
+&lt;span style="color:#a6e22e">values&lt;/span>.&lt;span style="color:#a6e22e">forEach&lt;/span>(&lt;span style="color:#a6e22e">v&lt;/span> =&amp;gt; {
+&lt;span style="color:#a6e22e">allMembers&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">allMembers&lt;/span>.&lt;span style="color:#a6e22e">concat&lt;/span>(&lt;span style="color:#a6e22e">v&lt;/span>.&lt;span style="color:#a6e22e">items&lt;/span>);
+});
+&lt;span style="color:#a6e22e">fetchMembers&lt;/span>(&lt;span style="color:#a6e22e">allMembers&lt;/span>);
+});
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Most of this is insignificant - I have to call the members api in batches to get all the MPs back. I&amp;rsquo;m using Promise.all to get the results of all those batch fetches and putting them into one array, which is used in the HTML portion of the component.&lt;/p>
+&lt;p>Notice fetchMembers(allMembers); at the end - this is what activates that useState thing from before.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-javascript" data-lang="javascript">
+&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">getMemberBatch&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">function&lt;/span> (&lt;span style="color:#a6e22e">batchNumber&lt;/span>) {
+&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> Promise(&lt;span style="color:#66d9ef">function&lt;/span> (&lt;span style="color:#a6e22e">resolve&lt;/span>, &lt;span style="color:#a6e22e">reject&lt;/span>) {
+&lt;span style="color:#a6e22e">fetch&lt;/span>(
+&lt;span style="color:#e6db74">&amp;#34;https://members-api.parliament.uk/api/Members/Search?skip&amp;#34;&lt;/span> &lt;span style="color:#f92672">+&lt;/span>
+&lt;span style="color:#a6e22e">batchNumber&lt;/span> &lt;span style="color:#f92672">*&lt;/span> &lt;span style="color:#ae81ff">20&lt;/span> &lt;span style="color:#f92672">+&lt;/span>
+&lt;span style="color:#e6db74">&amp;#34;&amp;amp;take=20&amp;#34;&lt;/span>
+)
+.&lt;span style="color:#a6e22e">then&lt;/span>(&lt;span style="color:#a6e22e">response&lt;/span> =&amp;gt; &lt;span style="color:#a6e22e">response&lt;/span>.&lt;span style="color:#a6e22e">json&lt;/span>())
+.&lt;span style="color:#a6e22e">then&lt;/span>(&lt;span style="color:#a6e22e">res&lt;/span> =&amp;gt; {
+&lt;span style="color:#a6e22e">resolve&lt;/span>(&lt;span style="color:#a6e22e">res&lt;/span>);
+})
+.&lt;span style="color:#66d9ef">catch&lt;/span>(&lt;span style="color:#a6e22e">err&lt;/span> =&amp;gt; {
+&lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#a6e22e">err&lt;/span>);
+&lt;span style="color:#a6e22e">reject&lt;/span>(&lt;span style="color:#a6e22e">err&lt;/span>);
+});
+});
+};
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>This is the part that does the actual work, calling the API and returning a Promise for the batch in question.&lt;/p>
+&lt;p>And for completeness, here is the whole component:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="color:#66d9ef">import&lt;/span> &lt;span style="color:#a6e22e">React&lt;/span>, { &lt;span style="color:#a6e22e">useState&lt;/span>, &lt;span style="color:#a6e22e">useEffect&lt;/span> } &lt;span style="color:#a6e22e">from&lt;/span> &lt;span style="color:#e6db74">&amp;#34;react&amp;#34;&lt;/span>;
+&lt;span style="color:#66d9ef">import&lt;/span> &lt;span style="color:#a6e22e">MemberCard&lt;/span> &lt;span style="color:#a6e22e">from&lt;/span> &lt;span style="color:#e6db74">&amp;#34;./MemberCard&amp;#34;&lt;/span>;
+&lt;span style="color:#66d9ef">export&lt;/span> &lt;span style="color:#66d9ef">default&lt;/span> &lt;span style="color:#66d9ef">function&lt;/span> &lt;span style="color:#a6e22e">MemberList&lt;/span>() {
+&lt;span style="color:#66d9ef">const&lt;/span> [&lt;span style="color:#a6e22e">Members&lt;/span>, &lt;span style="color:#a6e22e">fetchMembers&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">useState&lt;/span>([]);
+&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">getMemberBatch&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">function&lt;/span> (&lt;span style="color:#a6e22e">batchNumber&lt;/span>) {
+&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> Promise(&lt;span style="color:#66d9ef">function&lt;/span> (&lt;span style="color:#a6e22e">resolve&lt;/span>, &lt;span style="color:#a6e22e">reject&lt;/span>) {
+&lt;span style="color:#a6e22e">fetch&lt;/span>(
+&lt;span style="color:#e6db74">&amp;#34;https://members-api.parliament.uk/api/Members/Search?skip&amp;#34;&lt;/span> &lt;span style="color:#f92672">+&lt;/span>
+&lt;span style="color:#a6e22e">batchNumber&lt;/span> &lt;span style="color:#f92672">*&lt;/span> &lt;span style="color:#ae81ff">20&lt;/span> &lt;span style="color:#f92672">+&lt;/span>
+&lt;span style="color:#e6db74">&amp;#34;&amp;amp;take=20&amp;#34;&lt;/span>
+)
+.&lt;span style="color:#a6e22e">then&lt;/span>(&lt;span style="color:#a6e22e">response&lt;/span> =&amp;gt; &lt;span style="color:#a6e22e">response&lt;/span>.&lt;span style="color:#a6e22e">json&lt;/span>())
+.&lt;span style="color:#a6e22e">then&lt;/span>(&lt;span style="color:#a6e22e">res&lt;/span> =&amp;gt; {
+&lt;span style="color:#a6e22e">resolve&lt;/span>(&lt;span style="color:#a6e22e">res&lt;/span>);
+})
+.&lt;span style="color:#66d9ef">catch&lt;/span>(&lt;span style="color:#a6e22e">err&lt;/span> =&amp;gt; {
+&lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#a6e22e">err&lt;/span>);
+&lt;span style="color:#a6e22e">reject&lt;/span>(&lt;span style="color:#a6e22e">err&lt;/span>);
+});
+});
+};
+&lt;span style="color:#66d9ef">function&lt;/span> &lt;span style="color:#a6e22e">getAllMembers&lt;/span>() {
+&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">numMembers&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">650&lt;/span>;
+&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">batchSize&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">20&lt;/span>;
+&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">numBatches&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">numMembers&lt;/span> &lt;span style="color:#f92672">/&lt;/span> &lt;span style="color:#a6e22e">batchSize&lt;/span>;
+&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">currentBatch&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">allMembers&lt;/span> &lt;span style="color:#f92672">=&lt;/span> [];
+&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">promises&lt;/span> &lt;span style="color:#f92672">=&lt;/span> [];
+&lt;span style="color:#66d9ef">while&lt;/span> (&lt;span style="color:#a6e22e">currentBatch&lt;/span> &lt;span style="color:#f92672">&amp;lt;&lt;/span> &lt;span style="color:#a6e22e">numBatches&lt;/span>) {
+&lt;span style="color:#a6e22e">promises&lt;/span>.&lt;span style="color:#a6e22e">push&lt;/span>(&lt;span style="color:#a6e22e">getMemberBatch&lt;/span>(&lt;span style="color:#a6e22e">currentBatch&lt;/span>))
+&lt;span style="color:#a6e22e">currentBatch&lt;/span> &lt;span style="color:#f92672">+=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>;
+}
+Promise.&lt;span style="color:#a6e22e">all&lt;/span>(&lt;span style="color:#a6e22e">promises&lt;/span>).&lt;span style="color:#a6e22e">then&lt;/span>(&lt;span style="color:#66d9ef">function&lt;/span>(&lt;span style="color:#a6e22e">values&lt;/span>)
+{
+&lt;span style="color:#a6e22e">values&lt;/span>.&lt;span style="color:#a6e22e">forEach&lt;/span>(&lt;span style="color:#a6e22e">v&lt;/span> =&amp;gt; {
+&lt;span style="color:#a6e22e">allMembers&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">allMembers&lt;/span>.&lt;span style="color:#a6e22e">concat&lt;/span>(&lt;span style="color:#a6e22e">v&lt;/span>.&lt;span style="color:#a6e22e">items&lt;/span>);
+});
+&lt;span style="color:#a6e22e">fetchMembers&lt;/span>(&lt;span style="color:#a6e22e">allMembers&lt;/span>);
+});
+}
+&lt;span style="color:#a6e22e">useEffect&lt;/span>(() =&amp;gt; {
+&lt;span style="color:#a6e22e">getAllMembers&lt;/span>();
+}, []);
+&lt;span style="color:#66d9ef">return&lt;/span> (
+&lt;span style="color:#f92672">&amp;lt;&amp;gt;&lt;/span>
+&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#a6e22e">h2&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">Members&lt;/span> &lt;span style="color:#66d9ef">of&lt;/span> &lt;span style="color:#a6e22e">Parliament&lt;/span>&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">/h2&amp;gt;&lt;/span>
+{&lt;span style="color:#a6e22e">Members&lt;/span>.&lt;span style="color:#a6e22e">map&lt;/span>((&lt;span style="color:#a6e22e">item&lt;/span>, &lt;span style="color:#a6e22e">id&lt;/span>) =&amp;gt; {
+&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#a6e22e">MemberCard&lt;/span> &lt;span style="color:#a6e22e">name&lt;/span>&lt;span style="color:#f92672">=&lt;/span>{&lt;span style="color:#a6e22e">item&lt;/span>.&lt;span style="color:#a6e22e">value&lt;/span>.&lt;span style="color:#a6e22e">nameDisplayAs&lt;/span>} &lt;span style="color:#f92672">/&amp;gt;&lt;/span>;
+})}
+&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">/&amp;gt;&lt;/span>
+);
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="app">App&lt;/h1>
+&lt;p>Finally, the root level component is extremely dumb, simply instantiating the MemberList:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="color:#66d9ef">import&lt;/span> &lt;span style="color:#a6e22e">MemberList&lt;/span> &lt;span style="color:#a6e22e">from&lt;/span> &lt;span style="color:#e6db74">&amp;#34;./components/MemberList&amp;#34;&lt;/span>;
+&lt;span style="color:#66d9ef">function&lt;/span> &lt;span style="color:#a6e22e">App&lt;/span>() {
+&lt;span style="color:#66d9ef">return&lt;/span> (
+&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#a6e22e">div&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span>
+&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#a6e22e">MemberList&lt;/span> &lt;span style="color:#f92672">/&amp;gt;&lt;/span>
+&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">/div&amp;gt;&lt;/span>
+);
+}
+&lt;span style="color:#66d9ef">export&lt;/span> &lt;span style="color:#66d9ef">default&lt;/span> &lt;span style="color:#a6e22e">App&lt;/span>;
+&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="next-steps">Next steps&lt;/h1>
+&lt;p>Next I&amp;rsquo;ll create a modal to be opened when that &amp;lsquo;details&amp;rsquo; button is clicked, which will show more information about each MP.&lt;/p></content></item><item><title>Vim Wiki Habits</title><link>https://rasengangstarr.github.io/Portfolio/projects/vim-habits/</link><pubDate>Fri, 18 Feb 2022 20:12:30 +0000</pubDate><guid>https://rasengangstarr.github.io/Portfolio/projects/vim-habits/</guid><description>A habit tracker plugin for Vim</description><content>&lt;p>&lt;a href="https://github.com/Rasengangstarr/vimwikihabits">Github Page&lt;/a>.&lt;/p>
 &lt;p>A few months back, I decided I was going to finally force myself to learn &lt;a href="https://www.vim.org/">Vim&lt;/a>.&lt;/p>
 &lt;p>I ended up building a 60% keyboard with snap in switches (which was a fun project in and of itself), which crucially didn&amp;rsquo;t have any arrow keys, forcing me to learn vim&amp;rsquo;s hjkl control system.&lt;/p>
 &lt;p>&lt;img src="https://rasengangstarr.github.io/Portfolio/images/mykeyboard.jpg" alt="My Keyboard">&lt;/p>

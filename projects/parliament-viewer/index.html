@@ -1,0 +1,304 @@
+<!doctype html><html lang=en>
+<head>
+<title>React Parliament Viewer :: Rasengangstarr</title>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content="Learning React.JS by building a view of the UK Parliament API">
+<meta name=keywords content>
+<meta name=robots content="noodp">
+<link rel=canonical href=https://rasengangstarr.github.io/Portfolio/projects/parliament-viewer/>
+<link rel=stylesheet href=https://rasengangstarr.github.io/Portfolio/assets/style.css>
+<link rel=stylesheet href=https://rasengangstarr.github.io/Portfolio/assets/blue.css>
+<link rel=apple-touch-icon href=https://rasengangstarr.github.io/Portfolio/img/apple-touch-icon-192x192.png>
+<link rel="shortcut icon" href=https://rasengangstarr.github.io/Portfolio/img/favicon/blue.png>
+<meta name=twitter:card content="summary">
+<meta name=twitter:site content>
+<meta name=twitter:creator content>
+<meta property="og:locale" content="en">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React Parliament Viewer">
+<meta property="og:description" content="Learning React.JS by building a view of the UK Parliament API">
+<meta property="og:url" content="https://rasengangstarr.github.io/Portfolio/projects/parliament-viewer/">
+<meta property="og:site_name" content="Rasengangstarr">
+<meta property="og:image" content="https://rasengangstarr.github.io/Portfolio/img/favicon/blue.png">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+<meta property="article:published_time" content="2022-02-19 14:34:18 +0000 UTC">
+</head>
+<body class=blue>
+<div class="container center headings--one-size">
+<header class=header>
+<div class=header__inner>
+<div class=header__logo>
+<a href=https://rasengangstarr.github.io/Portfolio/>
+<div class=logo>
+Rasengangstarr
+</div>
+</a>
+</div>
+<div class=menu-trigger>menu</div>
+</div>
+<nav class=menu>
+<ul class="menu__inner menu__inner--desktop">
+<li><a href=https://rasengangstarr.github.io/Portfolio/projects/>Projects</a></li>
+<li><a href=https://rasengangstarr.github.io/Portfolio/about/resume>Resume</a></li>
+</ul>
+<ul class="menu__inner menu__inner--mobile">
+<li><a href=https://rasengangstarr.github.io/Portfolio/projects/>Projects</a></li>
+<li><a href=https://rasengangstarr.github.io/Portfolio/about/resume>Resume</a></li>
+</ul>
+</nav>
+</header>
+<div class=content>
+<div class=post>
+<h1 class=post-title>
+<a href=https://rasengangstarr.github.io/Portfolio/projects/parliament-viewer/>React Parliament Viewer</a></h1>
+<div class=post-meta>
+<span class=post-date>
+2022-02-19
+</span>
+</div>
+<span class=post-tags>
+#<a href=https://rasengangstarr.github.io/Portfolio/tags/react/>react</a>&nbsp;
+#<a href=https://rasengangstarr.github.io/Portfolio/tags/project/>project</a>&nbsp;
+#<a href=https://rasengangstarr.github.io/Portfolio/tags/webdev/>webdev</a>&nbsp;
+</span>
+<div class=post-content><div>
+<p><a href=https://github.com/Rasengangstarr/ParliamentViewer>Github Page</a></p>
+<p><img src=https://rasengangstarr.github.io/Portfolio/images/parliamentphase1.png alt="Phase 1 Screenshot"></p>
+<p>Before I got distracted by <a href=../hugo-static-web-site>making this Hugo site</a>, I had planned to spend the weekend learning a new Javascript framework.</p>
+<p>My initial choice was <a href=https://www.solidjs.com/>Solid.js</a>, but all of the learning resources for it seem to expect you to already know <a href=https://reactjs.org/>React.JS</a>, so I went for that instead.</p>
+<p>I found out yesterday that the UK Parliament has an unexpectedly extensive <a href=https://members-api.parliament.uk/index.html>API</a>, which you don&rsquo;t even need authentication to use, so I decided my project would be some view on data about Members of Parliament.</p>
+<p>This document is written from my perspective as a Vue user, so I&rsquo;ll likely only point something out where its different.</p>
+<h1 id=installation-and-setup>Installation and Setup<a href=#installation-and-setup class=hanchor arialabel=Anchor>&#8983;</a> </h1>
+<p>The first step was getting the tools for React development installed. This requires you to install npm, then from there install the create-react-app package.</p>
+<p>I had all sorts of trouble with the version in the Ubuntu repositories, so downloaded their latest stable tar file and followed <a href=https://stackoverflow.com/questions/63312642/how-to-install-node-tar-xz-file-in-linux>these instructions</a> to get it installed.</p>
+<p>Once that was in place, running</p>
+<pre tabindex=0><code>create-react-app ParliamentViewer
+</code></pre><p>created a new templated app.</p>
+<p>I followed the first part of <a href="https://www.youtube.com/watch?v=Dorf8i6lCuk">this tutorial</a>, which recommended deleting some of analytics and test stuff that comes by default, which I did (I&rsquo;m not planning to unit test any of this for the time being), and I followed the tutorial to the point where I had a sub component and a main App component.</p>
+<h1 id=styling>Styling<a href=#styling class=hanchor arialabel=Anchor>&#8983;</a> </h1>
+<p>I&rsquo;m appauling at CSS, but i created some using the <a href=https://www.nordtheme.com/>Nord</a> color scheme i&rsquo;ve been ricing everything i use with recently:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-css data-lang=css><span style=color:#f92672>body</span> {
+  <span style=color:#66d9ef>background-color</span>: <span style=color:#ae81ff>#2E3440</span>;
+  <span style=color:#66d9ef>color</span>: <span style=color:#ae81ff>#e5e9f0</span>;
+  <span style=color:#66d9ef>font-family</span>:<span style=color:#e6db74>&#39;Lucida Sans&#39;</span>, <span style=color:#e6db74>&#39;Lucida Sans Regular&#39;</span>, <span style=color:#e6db74>&#39;Lucida Grande&#39;</span>, <span style=color:#e6db74>&#39;Lucida Sans Unicode&#39;</span>, Geneva, Verdana, <span style=color:#66d9ef>sans-serif</span>;
+}
+
+.<span style=color:#a6e22e>card</span> {
+  <span style=color:#66d9ef>background-color</span>: <span style=color:#ae81ff>#D8DEE9</span>;
+  <span style=color:#66d9ef>color</span>: <span style=color:#ae81ff>#434c5e</span>;
+  <span style=color:#66d9ef>margin-left</span>:<span style=color:#ae81ff>3</span><span style=color:#66d9ef>em</span>;
+  <span style=color:#66d9ef>margin-bottom</span>:<span style=color:#ae81ff>1</span><span style=color:#66d9ef>em</span>;
+  <span style=color:#66d9ef>border-radius</span>: <span style=color:#ae81ff>0.7</span><span style=color:#66d9ef>em</span>;
+  <span style=color:#66d9ef>padding</span>: <span style=color:#ae81ff>1</span><span style=color:#66d9ef>em</span>;
+  <span style=color:#66d9ef>padding-bottom</span>: <span style=color:#ae81ff>3</span><span style=color:#66d9ef>em</span>;
+  <span style=color:#66d9ef>padding-top</span>: <span style=color:#ae81ff>0.1</span><span style=color:#66d9ef>em</span>;
+  <span style=color:#66d9ef>width</span>: <span style=color:#ae81ff>20</span><span style=color:#66d9ef>em</span>;
+  <span style=color:#66d9ef>box-shadow</span>: <span style=color:#ae81ff>5</span><span style=color:#66d9ef>px</span> <span style=color:#ae81ff>5</span><span style=color:#66d9ef>px</span> <span style=color:#ae81ff>2</span><span style=color:#66d9ef>px</span> <span style=color:#ae81ff>#1D2330</span>;
+}
+
+.<span style=color:#a6e22e>card-actions</span>
+{
+  <span style=color:#66d9ef>float</span>:<span style=color:#66d9ef>right</span>;
+}
+
+.<span style=color:#a6e22e>button</span> {
+  <span style=color:#66d9ef>font-size</span>: <span style=color:#ae81ff>1</span><span style=color:#66d9ef>em</span>;
+  <span style=color:#66d9ef>padding</span>: <span style=color:#ae81ff>.5</span><span style=color:#66d9ef>em</span>;
+  <span style=color:#66d9ef>background-color</span>: <span style=color:#ae81ff>#4c566a</span>;
+  <span style=color:#66d9ef>color</span>: <span style=color:#ae81ff>#D8DEE9</span>;
+  <span style=color:#66d9ef>font-weight</span>:<span style=color:#ae81ff>500</span>;
+  <span style=color:#66d9ef>border-radius</span>: <span style=color:#ae81ff>0.5</span><span style=color:#66d9ef>em</span>;
+  <span style=color:#66d9ef>padding-left</span>: <span style=color:#ae81ff>1</span><span style=color:#66d9ef>em</span>;
+  <span style=color:#66d9ef>padding-right</span>: <span style=color:#ae81ff>1</span><span style=color:#66d9ef>em</span>;
+}
+</code></pre></div><h1 id=structure>Structure<a href=#structure class=hanchor arialabel=Anchor>&#8983;</a> </h1>
+<p>In the first instance, my application is structured as follows:</p>
+<script async type=application/javascript src=https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js>var config={startOnLoad:!0,theme:'dark',align:'center'};mermaid.initialize(config)</script>
+<div class=mermaid>
+graph TD;
+App-->MemberList;
+MemberList-->MemberCard1;
+MemberList-->MemberCard2;
+MemberList-->MemberCard3;
+</div>
+<ul>
+<li>Each Member Card is responsible for rendering the name of the Member of Parliament.</li>
+<li>The Member List is responsible for fetching the Members in batches, then rendering the Card Elements.</li>
+<li>The App is the root level with a single Member List</li>
+</ul>
+<h1 id=member-card>Member Card<a href=#member-card class=hanchor arialabel=Anchor>&#8983;</a> </h1>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>MemberCard</span>(<span style=color:#a6e22e>props</span>) {
+  <span style=color:#66d9ef>return</span> (
+    <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>div</span> <span style=color:#a6e22e>className</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;card&#34;</span><span style=color:#f92672>&gt;</span>
+      <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>h2</span><span style=color:#f92672>&gt;</span>{<span style=color:#a6e22e>props</span>.<span style=color:#a6e22e>name</span>}<span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/h2&gt;</span>
+      <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>div</span> <span style=color:#a6e22e>className</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;card-actions&#34;</span><span style=color:#f92672>&gt;</span>
+        <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>button</span> <span style=color:#a6e22e>className</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;button&#34;</span><span style=color:#f92672>&gt;</span><span style=color:#a6e22e>Details</span><span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/button&gt;</span>
+      <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/div&gt;</span>
+    <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/div&gt;</span>
+  );
+}
+<span style=color:#66d9ef>export</span> <span style=color:#66d9ef>default</span> <span style=color:#a6e22e>MemberCard</span>;
+</code></pre></div><p>Here we can see how a basic React component is laid out. It struck me as significantly less verbose than it would be in Vue.</p>
+<p>The props object is passed in by the parent, and we can get the individual properties we passed in off it.</p>
+<h1 id=member-list>Member List<a href=#member-list class=hanchor arialabel=Anchor>&#8983;</a> </h1>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript>  <span style=color:#66d9ef>return</span> (
+    <span style=color:#f92672>&lt;&gt;</span>
+      <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>h2</span><span style=color:#f92672>&gt;</span><span style=color:#a6e22e>Members</span> <span style=color:#66d9ef>of</span> <span style=color:#a6e22e>Parliament</span><span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/h2&gt;</span>
+        {<span style=color:#a6e22e>Members</span>.<span style=color:#a6e22e>map</span>((<span style=color:#a6e22e>item</span>, <span style=color:#a6e22e>id</span>) =&gt; {
+          <span style=color:#66d9ef>return</span> <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>MemberCard</span> <span style=color:#a6e22e>name</span><span style=color:#f92672>=</span>{<span style=color:#a6e22e>item</span>.<span style=color:#a6e22e>value</span>.<span style=color:#a6e22e>nameDisplayAs</span>} <span style=color:#f92672>/&gt;</span>;
+        })}
+    <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/&gt;</span>
+  );
+</code></pre></div><p>Here we can see that property being passed in to &lsquo;name&rsquo; on the MemberCard. I&rsquo;m mapping over the Members array to show each item in it.</p>
+<p>Again, much more terse than the v-for syntax in Vue, plus its native Javascript, which is cool and seems like it could be really powerful (could you reduce over an array like this? or filter?)</p>
+<p>The rest of this file is where most of the new/complicated stuff is.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#66d9ef>import</span> <span style=color:#a6e22e>React</span>, { <span style=color:#a6e22e>useState</span>, <span style=color:#a6e22e>useEffect</span> } <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#34;react&#34;</span>;
+</code></pre></div><p>We import useState and useEffect at the start of the file.</p>
+<p>useState seems to have the same function as the data section in a Vue component would, though I may be wrong.</p>
+<p>It get&rsquo;s used like this:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#66d9ef>const</span> [<span style=color:#a6e22e>Members</span>, <span style=color:#a6e22e>fetchMembers</span>] <span style=color:#f92672>=</span> <span style=color:#a6e22e>useState</span>([]);
+</code></pre></div><p>Which as far as I can tell says: use fetchMembers to write the state of the Members object. Could Members now be used elsewhere in the application? I&rsquo;m not sure.</p>
+<p>useEffect, as far as I can tell from the documentation, is called every time the page is rendered - when I add more functionality, I need to check its not calling this every time something happens.</p>
+<pre tabindex=0><code>  useEffect(() =&gt; {
+    getAllMembers();
+  }, []);
+</code></pre><p>It may be more appropriate to use some kind of on mount method.</p>
+<p>At any rate, this get&rsquo;s called when the page loads and calls my logic:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript>
+<span style=color:#66d9ef>function</span> <span style=color:#a6e22e>getAllMembers</span>() {
+    <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>numMembers</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>650</span>;
+    <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>batchSize</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>20</span>;
+    <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>numBatches</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>numMembers</span> <span style=color:#f92672>/</span> <span style=color:#a6e22e>batchSize</span>;
+    <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>currentBatch</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+    <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>allMembers</span> <span style=color:#f92672>=</span> [];
+    <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>promises</span> <span style=color:#f92672>=</span> [];
+    <span style=color:#66d9ef>while</span> (<span style=color:#a6e22e>currentBatch</span> <span style=color:#f92672>&lt;</span> <span style=color:#a6e22e>numBatches</span>) {
+      <span style=color:#a6e22e>promises</span>.<span style=color:#a6e22e>push</span>(<span style=color:#a6e22e>getMemberBatch</span>(<span style=color:#a6e22e>currentBatch</span>))
+      <span style=color:#a6e22e>currentBatch</span> <span style=color:#f92672>+=</span> <span style=color:#ae81ff>1</span>;
+    }
+    Promise.<span style=color:#a6e22e>all</span>(<span style=color:#a6e22e>promises</span>).<span style=color:#a6e22e>then</span>(<span style=color:#66d9ef>function</span>(<span style=color:#a6e22e>values</span>)
+    {
+      <span style=color:#a6e22e>values</span>.<span style=color:#a6e22e>forEach</span>(<span style=color:#a6e22e>v</span> =&gt; {
+        <span style=color:#a6e22e>allMembers</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>allMembers</span>.<span style=color:#a6e22e>concat</span>(<span style=color:#a6e22e>v</span>.<span style=color:#a6e22e>items</span>);
+      });
+      <span style=color:#a6e22e>fetchMembers</span>(<span style=color:#a6e22e>allMembers</span>);
+    });
+    
+  }
+
+</code></pre></div><p>Most of this is insignificant - I have to call the members api in batches to get all the MPs back. I&rsquo;m using Promise.all to get the results of all those batch fetches and putting them into one array, which is used in the HTML portion of the component.</p>
+<p>Notice fetchMembers(allMembers); at the end - this is what activates that useState thing from before.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript>
+  <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>getMemberBatch</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>function</span> (<span style=color:#a6e22e>batchNumber</span>) {
+  <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>new</span> Promise(<span style=color:#66d9ef>function</span> (<span style=color:#a6e22e>resolve</span>, <span style=color:#a6e22e>reject</span>) {
+    <span style=color:#a6e22e>fetch</span>(
+      <span style=color:#e6db74>&#34;https://members-api.parliament.uk/api/Members/Search?skip&#34;</span> <span style=color:#f92672>+</span>
+        <span style=color:#a6e22e>batchNumber</span> <span style=color:#f92672>*</span> <span style=color:#ae81ff>20</span> <span style=color:#f92672>+</span>
+        <span style=color:#e6db74>&#34;&amp;take=20&#34;</span>
+    )
+      .<span style=color:#a6e22e>then</span>(<span style=color:#a6e22e>response</span> =&gt; <span style=color:#a6e22e>response</span>.<span style=color:#a6e22e>json</span>())
+      .<span style=color:#a6e22e>then</span>(<span style=color:#a6e22e>res</span> =&gt; {
+        <span style=color:#a6e22e>resolve</span>(<span style=color:#a6e22e>res</span>);
+      })
+      .<span style=color:#66d9ef>catch</span>(<span style=color:#a6e22e>err</span> =&gt; {
+        <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#a6e22e>err</span>);
+        <span style=color:#a6e22e>reject</span>(<span style=color:#a6e22e>err</span>);
+      });
+  });
+};
+
+</code></pre></div><p>This is the part that does the actual work, calling the API and returning a Promise for the batch in question.</p>
+<p>And for completeness, here is the whole component:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#66d9ef>import</span> <span style=color:#a6e22e>React</span>, { <span style=color:#a6e22e>useState</span>, <span style=color:#a6e22e>useEffect</span> } <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#34;react&#34;</span>;
+<span style=color:#66d9ef>import</span> <span style=color:#a6e22e>MemberCard</span> <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#34;./MemberCard&#34;</span>;
+
+<span style=color:#66d9ef>export</span> <span style=color:#66d9ef>default</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>MemberList</span>() {
+  <span style=color:#66d9ef>const</span> [<span style=color:#a6e22e>Members</span>, <span style=color:#a6e22e>fetchMembers</span>] <span style=color:#f92672>=</span> <span style=color:#a6e22e>useState</span>([]);
+
+  <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>getMemberBatch</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>function</span> (<span style=color:#a6e22e>batchNumber</span>) {
+    <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>new</span> Promise(<span style=color:#66d9ef>function</span> (<span style=color:#a6e22e>resolve</span>, <span style=color:#a6e22e>reject</span>) {
+      <span style=color:#a6e22e>fetch</span>(
+        <span style=color:#e6db74>&#34;https://members-api.parliament.uk/api/Members/Search?skip&#34;</span> <span style=color:#f92672>+</span>
+          <span style=color:#a6e22e>batchNumber</span> <span style=color:#f92672>*</span> <span style=color:#ae81ff>20</span> <span style=color:#f92672>+</span>
+          <span style=color:#e6db74>&#34;&amp;take=20&#34;</span>
+      )
+        .<span style=color:#a6e22e>then</span>(<span style=color:#a6e22e>response</span> =&gt; <span style=color:#a6e22e>response</span>.<span style=color:#a6e22e>json</span>())
+        .<span style=color:#a6e22e>then</span>(<span style=color:#a6e22e>res</span> =&gt; {
+          <span style=color:#a6e22e>resolve</span>(<span style=color:#a6e22e>res</span>);
+        })
+        .<span style=color:#66d9ef>catch</span>(<span style=color:#a6e22e>err</span> =&gt; {
+          <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#a6e22e>err</span>);
+          <span style=color:#a6e22e>reject</span>(<span style=color:#a6e22e>err</span>);
+        });
+    });
+  };
+
+  <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>getAllMembers</span>() {
+    <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>numMembers</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>650</span>;
+    <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>batchSize</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>20</span>;
+    <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>numBatches</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>numMembers</span> <span style=color:#f92672>/</span> <span style=color:#a6e22e>batchSize</span>;
+    <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>currentBatch</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+    <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>allMembers</span> <span style=color:#f92672>=</span> [];
+    <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>promises</span> <span style=color:#f92672>=</span> [];
+    <span style=color:#66d9ef>while</span> (<span style=color:#a6e22e>currentBatch</span> <span style=color:#f92672>&lt;</span> <span style=color:#a6e22e>numBatches</span>) {
+      <span style=color:#a6e22e>promises</span>.<span style=color:#a6e22e>push</span>(<span style=color:#a6e22e>getMemberBatch</span>(<span style=color:#a6e22e>currentBatch</span>))
+      <span style=color:#a6e22e>currentBatch</span> <span style=color:#f92672>+=</span> <span style=color:#ae81ff>1</span>;
+    }
+    Promise.<span style=color:#a6e22e>all</span>(<span style=color:#a6e22e>promises</span>).<span style=color:#a6e22e>then</span>(<span style=color:#66d9ef>function</span>(<span style=color:#a6e22e>values</span>)
+    {
+      <span style=color:#a6e22e>values</span>.<span style=color:#a6e22e>forEach</span>(<span style=color:#a6e22e>v</span> =&gt; {
+        <span style=color:#a6e22e>allMembers</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>allMembers</span>.<span style=color:#a6e22e>concat</span>(<span style=color:#a6e22e>v</span>.<span style=color:#a6e22e>items</span>);
+      });
+      <span style=color:#a6e22e>fetchMembers</span>(<span style=color:#a6e22e>allMembers</span>);
+    });
+    
+  }
+
+  <span style=color:#a6e22e>useEffect</span>(() =&gt; {
+    <span style=color:#a6e22e>getAllMembers</span>();
+  }, []);
+
+  <span style=color:#66d9ef>return</span> (
+    <span style=color:#f92672>&lt;&gt;</span>
+      <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>h2</span><span style=color:#f92672>&gt;</span><span style=color:#a6e22e>Members</span> <span style=color:#66d9ef>of</span> <span style=color:#a6e22e>Parliament</span><span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/h2&gt;</span>
+        {<span style=color:#a6e22e>Members</span>.<span style=color:#a6e22e>map</span>((<span style=color:#a6e22e>item</span>, <span style=color:#a6e22e>id</span>) =&gt; {
+          <span style=color:#66d9ef>return</span> <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>MemberCard</span> <span style=color:#a6e22e>name</span><span style=color:#f92672>=</span>{<span style=color:#a6e22e>item</span>.<span style=color:#a6e22e>value</span>.<span style=color:#a6e22e>nameDisplayAs</span>} <span style=color:#f92672>/&gt;</span>;
+        })}
+    <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/&gt;</span>
+  );
+}
+
+</code></pre></div><h1 id=app>App<a href=#app class=hanchor arialabel=Anchor>&#8983;</a> </h1>
+<p>Finally, the root level component is extremely dumb, simply instantiating the MemberList:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#66d9ef>import</span> <span style=color:#a6e22e>MemberList</span> <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#34;./components/MemberList&#34;</span>;
+
+<span style=color:#66d9ef>function</span> <span style=color:#a6e22e>App</span>() {
+  <span style=color:#66d9ef>return</span> (
+    <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>div</span><span style=color:#f92672>&gt;</span>
+      <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>MemberList</span> <span style=color:#f92672>/&gt;</span> 
+    <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/div&gt;</span>
+  );
+}
+
+<span style=color:#66d9ef>export</span> <span style=color:#66d9ef>default</span> <span style=color:#a6e22e>App</span>;
+
+</code></pre></div><h1 id=next-steps>Next steps<a href=#next-steps class=hanchor arialabel=Anchor>&#8983;</a> </h1>
+<p>Next I&rsquo;ll create a modal to be opened when that &lsquo;details&rsquo; button is clicked, which will show more information about each MP.</p>
+</div></div>
+</div>
+</div>
+<footer class=footer>
+<div class=footer__inner>
+<div class=copyright>
+<span>© 2022 Powered by <a href=http://gohugo.io>Hugo</a></span>
+<span>:: Theme made by <a href=https://twitter.com/panr>panr</a></span>
+</div>
+</div>
+</footer>
+<script src=https://rasengangstarr.github.io/Portfolio/assets/main.js></script>
+<script src=https://rasengangstarr.github.io/Portfolio/assets/prism.js></script>
+</div>
+</body>
+</html>
