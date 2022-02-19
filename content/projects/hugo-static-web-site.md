@@ -3,6 +3,10 @@ title: "Hugo Static Web Site"
 date: 2022-02-18T17:30:32Z
 draft: false
 summary: "How I made this site"
+tags: 
+- 'hugo'
+- 'project'
+- 'webdev'
 ---
 
 [Github Page](https://github.com/Rasengangstarr/Portfolio)
