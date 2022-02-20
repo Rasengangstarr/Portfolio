@@ -1,0 +1,232 @@
+<!doctype html><html lang=en>
+<head>
+<title>React Parliament Part 2 :: Rasengangstarr</title>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content="Adding buttons, MP info and deploying to Linode">
+<meta name=keywords content>
+<meta name=robots content="noodp">
+<link rel=canonical href=https://rasengangstarr.github.io/Portfolio/projects/parliamentviewer/parliament-viewer-2/>
+<link rel=stylesheet href=https://rasengangstarr.github.io/Portfolio/assets/style.css>
+<link rel=stylesheet href=https://rasengangstarr.github.io/Portfolio/assets/blue.css>
+<link rel=apple-touch-icon href=https://rasengangstarr.github.io/Portfolio/img/apple-touch-icon-192x192.png>
+<link rel="shortcut icon" href=https://rasengangstarr.github.io/Portfolio/img/favicon/blue.png>
+<meta name=twitter:card content="summary">
+<meta name=twitter:site content>
+<meta name=twitter:creator content>
+<meta property="og:locale" content="en">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React Parliament Part 2">
+<meta property="og:description" content="Adding buttons, MP info and deploying to Linode">
+<meta property="og:url" content="https://rasengangstarr.github.io/Portfolio/projects/parliamentviewer/parliament-viewer-2/">
+<meta property="og:site_name" content="Rasengangstarr">
+<meta property="og:image" content="https://rasengangstarr.github.io/Portfolio/img/favicon/blue.png">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+<meta property="article:published_time" content="2022-02-20 10:34:18 +0000 UTC">
+</head>
+<body class=blue>
+<div class="container center headings--one-size">
+<header class=header>
+<div class=header__inner>
+<div class=header__logo>
+<a href=https://rasengangstarr.github.io/Portfolio/>
+<div class=logo>
+Rasengangstarr
+</div>
+</a>
+</div>
+<div class=menu-trigger>menu</div>
+</div>
+<nav class=menu>
+<ul class="menu__inner menu__inner--desktop">
+<li><a href=https://rasengangstarr.github.io/Portfolio/projects/>Projects</a></li>
+<li><a href=https://rasengangstarr.github.io/Portfolio/about/resume>Resume</a></li>
+</ul>
+<ul class="menu__inner menu__inner--mobile">
+<li><a href=https://rasengangstarr.github.io/Portfolio/projects/>Projects</a></li>
+<li><a href=https://rasengangstarr.github.io/Portfolio/about/resume>Resume</a></li>
+</ul>
+</nav>
+</header>
+<div class=content>
+<div class=post>
+<h1 class=post-title>
+<a href=https://rasengangstarr.github.io/Portfolio/projects/parliamentviewer/parliament-viewer-2/>React Parliament Part 2</a></h1>
+<div class=post-meta>
+<span class=post-date>
+2022-02-20
+</span>
+</div>
+<span class=post-tags>
+#<a href=https://rasengangstarr.github.io/Portfolio/tags/react/>react</a>&nbsp;
+#<a href=https://rasengangstarr.github.io/Portfolio/tags/project/>project</a>&nbsp;
+#<a href=https://rasengangstarr.github.io/Portfolio/tags/webdev/>webdev</a>&nbsp;
+</span>
+<div class=post-content><div>
+<p><a href=../parliament-viewer-1>Part 1</a></p>
+<p><a href=https://github.com/Rasengangstarr/ParliamentViewer>Github Page</a></p>
+<p><img src=https://rasengangstarr.github.io/Portfolio/images/parliamentphase2.png alt="Phase 2 Screenshot"></p>
+<p>I implemented this phase during a <a href=https://www.twitch.tv/rasengangstarr>Livestream</a></p>
+<h1 id=creating-a-modal>Creating a Modal<a href=#creating-a-modal class=hanchor arialabel=Anchor>&#8983;</a> </h1>
+<p>When the details button on the cards are clicked I wanted to bring up a modal with more information about the MP.</p>
+<p>I created a new React component for the modal</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#66d9ef>import</span> <span style=color:#a6e22e>React</span>, { <span style=color:#a6e22e>useState</span> } <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#34;react&#34;</span>;
+
+<span style=color:#66d9ef>function</span> <span style=color:#a6e22e>MemberModal</span>(<span style=color:#a6e22e>props</span>) {
+  <span style=color:#66d9ef>return</span> (
+    <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>div</span>
+      <span style=color:#a6e22e>className</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;info-modal&#34;</span>
+      <span style=color:#a6e22e>style</span><span style=color:#f92672>=</span>{{ <span style=color:#a6e22e>display</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>props</span>.<span style=color:#a6e22e>showModal</span> <span style=color:#f92672>?</span> <span style=color:#e6db74>&#34;block&#34;</span> <span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;none&#34;</span> }}
+    <span style=color:#f92672>&gt;</span>
+      <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>div</span> <span style=color:#a6e22e>className</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;info-modal-content&#34;</span><span style=color:#f92672>&gt;</span>
+        <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>h1</span><span style=color:#f92672>&gt;</span>{<span style=color:#a6e22e>props</span>.<span style=color:#a6e22e>member</span><span style=color:#f92672>?</span>.<span style=color:#a6e22e>value</span><span style=color:#f92672>?</span>.<span style=color:#a6e22e>nameDisplayAs</span>}<span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/h1&gt;</span>
+        <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>div</span> <span style=color:#a6e22e>className</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;row&#34;</span><span style=color:#f92672>&gt;</span>
+          <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>div</span> <span style=color:#a6e22e>className</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;column&#34;</span><span style=color:#f92672>&gt;</span>
+            <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>img</span>
+              <span style=color:#a6e22e>className</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;member-portrait&#34;</span>
+              <span style=color:#a6e22e>src</span><span style=color:#f92672>=</span>{<span style=color:#a6e22e>props</span>.<span style=color:#a6e22e>member</span><span style=color:#f92672>?</span>.<span style=color:#a6e22e>value</span><span style=color:#f92672>?</span>.<span style=color:#a6e22e>thumbnailUrl</span>}
+            <span style=color:#f92672>/&gt;</span>
+          <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/div&gt;</span>
+          <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>div</span> <span style=color:#a6e22e>className</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;column&#34;</span><span style=color:#f92672>&gt;</span>
+            <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>div</span><span style=color:#f92672>&gt;</span><span style=color:#a6e22e>Title</span><span style=color:#f92672>:</span> {<span style=color:#a6e22e>props</span>.<span style=color:#a6e22e>member</span><span style=color:#f92672>?</span>.<span style=color:#a6e22e>value</span><span style=color:#f92672>?</span>.<span style=color:#a6e22e>nameFullTitle</span>}<span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/div&gt;</span>
+            <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>div</span><span style=color:#f92672>&gt;</span>
+              <span style=color:#a6e22e>Seat</span><span style=color:#f92672>:</span> {<span style=color:#a6e22e>props</span>.<span style=color:#a6e22e>member</span><span style=color:#f92672>?</span>.<span style=color:#a6e22e>value</span><span style=color:#f92672>?</span>.<span style=color:#a6e22e>latestHouseMembership</span>.<span style=color:#a6e22e>membershipFrom</span>}
+            <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/div&gt;</span>
+            <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>div</span><span style=color:#f92672>&gt;</span><span style=color:#a6e22e>Party</span><span style=color:#f92672>:</span> {<span style=color:#a6e22e>props</span>.<span style=color:#a6e22e>member</span><span style=color:#f92672>?</span>.<span style=color:#a6e22e>value</span><span style=color:#f92672>?</span>.<span style=color:#a6e22e>latestParty</span>.<span style=color:#a6e22e>name</span>}<span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/div&gt;</span>
+          <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/div&gt;</span>
+        <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/div&gt;</span>
+        <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>button</span> <span style=color:#a6e22e>className</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;close-button&#34;</span> <span style=color:#a6e22e>onClick</span><span style=color:#f92672>=</span>{<span style=color:#a6e22e>props</span>.<span style=color:#a6e22e>onDetailsCloseClick</span>}<span style=color:#f92672>&gt;</span>
+            <span style=color:#a6e22e>x</span> 
+        <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/button&gt;</span>
+      <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/div&gt;</span>
+    <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/div&gt;</span>
+  );
+}
+
+<span style=color:#66d9ef>export</span> <span style=color:#66d9ef>default</span> <span style=color:#a6e22e>MemberModal</span>;
+</code></pre></div><p>Much of this is somewhat similar to the code in the member card component from Part 1, but there are a couple of interesting additions.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript>    <span style=color:#a6e22e>style</span><span style=color:#f92672>=</span>{{ <span style=color:#a6e22e>display</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>props</span>.<span style=color:#a6e22e>showModal</span> <span style=color:#f92672>?</span> <span style=color:#e6db74>&#34;block&#34;</span> <span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;none&#34;</span> }}
+</code></pre></div><p>This tag on the containing div controls whether or not show the modal on the basis of a passed in property.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript>    <span style=color:#a6e22e>onClick</span><span style=color:#f92672>=</span>{<span style=color:#a6e22e>props</span>.<span style=color:#a6e22e>onDetailsCloseClick</span>}
+</code></pre></div><p>This is a callback, which will call a method in the parent component (more on that later).</p>
+<p>I also found some modal styling online, and modified it with the help of Twitch chat:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-css data-lang=css><span style=color:#75715e>/* The Modal (background) */</span>
+.<span style=color:#a6e22e>info-modal</span> {
+  <span style=color:#66d9ef>position</span>: <span style=color:#66d9ef>fixed</span>; 
+  <span style=color:#66d9ef>z-index</span>: <span style=color:#ae81ff>1</span>; <span style=color:#75715e>/* Sit on top */</span>
+  <span style=color:#66d9ef>padding-top</span>:<span style=color:#ae81ff>5</span><span style=color:#66d9ef>em</span>; <span style=color:#75715e>/* Location of the box */</span>
+  <span style=color:#66d9ef>left</span>: <span style=color:#ae81ff>0</span>;
+  <span style=color:#66d9ef>top</span>: <span style=color:#ae81ff>0</span>;
+  <span style=color:#66d9ef>width</span>: <span style=color:#ae81ff>100</span><span style=color:#66d9ef>%</span>; <span style=color:#75715e>/* Full width */</span>
+  <span style=color:#66d9ef>height</span>: <span style=color:#ae81ff>100</span><span style=color:#66d9ef>%</span>; <span style=color:#75715e>/* Full height */</span>
+  <span style=color:#66d9ef>overflow</span>: <span style=color:#66d9ef>auto</span>; <span style=color:#75715e>/* Enable scroll if needed */</span>
+  <span style=color:#66d9ef>background-color</span>: rgb(<span style=color:#ae81ff>0</span>,<span style=color:#ae81ff>0</span>,<span style=color:#ae81ff>0</span>); <span style=color:#75715e>/* Fallback color */</span>
+  <span style=color:#66d9ef>background-color</span>: rgba(<span style=color:#ae81ff>0</span>,<span style=color:#ae81ff>0</span>,<span style=color:#ae81ff>0</span>,<span style=color:#ae81ff>0.4</span>); <span style=color:#75715e>/* Black w/ opacity */</span>
+}
+
+<span style=color:#75715e>/* Modal Content */</span>
+.<span style=color:#a6e22e>info-modal-content</span> {
+  <span style=color:#66d9ef>background-color</span>: <span style=color:#ae81ff>#D8DEE9</span>;
+  <span style=color:#66d9ef>color</span>: <span style=color:#ae81ff>#434c5e</span>;
+  <span style=color:#66d9ef>margin</span>: <span style=color:#66d9ef>auto</span>;
+  <span style=color:#66d9ef>padding</span>: <span style=color:#ae81ff>20</span><span style=color:#66d9ef>px</span>;
+  <span style=color:#66d9ef>border</span>: <span style=color:#ae81ff>1</span><span style=color:#66d9ef>px</span> <span style=color:#66d9ef>solid</span> <span style=color:#ae81ff>#888</span>;
+  <span style=color:#66d9ef>width</span>: <span style=color:#ae81ff>25</span><span style=color:#66d9ef>em</span>;
+  <span style=color:#66d9ef>border-radius</span>: <span style=color:#ae81ff>0.6</span><span style=color:#66d9ef>em</span>;
+  <span style=color:#66d9ef>padding-bottom</span>: <span style=color:#ae81ff>3</span><span style=color:#66d9ef>em</span>;
+  <span style=color:#66d9ef>position</span>:<span style=color:#66d9ef>relative</span>;
+}
+</code></pre></div><p>Here is how it ended up looking:</p>
+<p><img src=https://rasengangstarr.github.io/Portfolio/images/parliamentmodal.png alt="Parliament Modal"></p>
+<h1 id=ricing-the-cards>Ricing the cards<a href=#ricing-the-cards class=hanchor arialabel=Anchor>&#8983;</a> </h1>
+<p>Since the API provides information on the party of each MP, i wanted to put accents on the cards to show this at a glance.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>getColorFromParty</span>(<span style=color:#a6e22e>party</span>) {
+    <span style=color:#66d9ef>switch</span> (<span style=color:#a6e22e>party</span>) {
+      <span style=color:#66d9ef>case</span> <span style=color:#e6db74>&#34;Lab&#34;</span><span style=color:#f92672>:</span>
+        <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;#bf616a&#34;</span>
+      <span style=color:#66d9ef>case</span> <span style=color:#e6db74>&#34;Con&#34;</span><span style=color:#f92672>:</span>
+        <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;#5e81ac&#34;</span>
+      <span style=color:#66d9ef>case</span> <span style=color:#e6db74>&#34;LD&#34;</span><span style=color:#f92672>:</span>
+        <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;#d08770&#34;</span>
+      <span style=color:#66d9ef>case</span> <span style=color:#e6db74>&#34;SNP&#34;</span><span style=color:#f92672>:</span>
+        <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;#ebcb8b&#34;</span>
+      <span style=color:#66d9ef>case</span> <span style=color:#e6db74>&#34;SF&#34;</span><span style=color:#f92672>:</span>
+        <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;#a3be8c&#34;</span>
+      <span style=color:#66d9ef>case</span> <span style=color:#e6db74>&#34;UUP&#34;</span><span style=color:#f92672>:</span>
+        <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;#81a1c1&#34;</span>
+      <span style=color:#66d9ef>default</span><span style=color:#f92672>:</span>
+      <span style=color:#75715e>// code block
+</span><span style=color:#75715e></span>    }
+  }
+  <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>formatMemberName</span>(<span style=color:#a6e22e>name</span>)
+  {
+    <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>name</span>.<span style=color:#a6e22e>length</span> <span style=color:#f92672>&gt;=</span> <span style=color:#ae81ff>20</span>) 
+      <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>name</span>.<span style=color:#a6e22e>substring</span>(<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>18</span>) <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;...&#34;</span>;
+    
+    <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>name</span>;
+  }
+</code></pre></div><p>I achieved this with a simple case statement based on the shortcode of the member&rsquo;s party, I also truncated long names to keep the cards looking consistent.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#f92672>&lt;</span><span style=color:#a6e22e>div</span>
+      <span style=color:#a6e22e>className</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;card&#34;</span>
+      <span style=color:#a6e22e>style</span><span style=color:#f92672>=</span>{{ <span style=color:#a6e22e>borderLeftColor</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>getColorFromParty</span>(<span style=color:#a6e22e>props</span>.<span style=color:#a6e22e>member</span>.<span style=color:#a6e22e>latestParty</span>.<span style=color:#a6e22e>abbreviation</span>) }}
+<span style=color:#f92672>&gt;</span>
+
+...
+
+
+<span style=color:#f92672>&lt;</span><span style=color:#a6e22e>h2</span><span style=color:#f92672>&gt;</span>{<span style=color:#a6e22e>formatMemberName</span>(<span style=color:#a6e22e>props</span>.<span style=color:#a6e22e>member</span>.<span style=color:#a6e22e>nameDisplayAs</span>)}<span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/h2&gt;</span>
+</code></pre></div><p>The button was also modified to have an onClick callback and a key value:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript>    <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>button</span>
+        <span style=color:#a6e22e>className</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;button&#34;</span>
+        <span style=color:#a6e22e>onClick</span><span style=color:#f92672>=</span>{<span style=color:#a6e22e>props</span>.<span style=color:#a6e22e>onMemberCardDetailsClick</span>}
+        <span style=color:#a6e22e>value</span><span style=color:#f92672>=</span>{<span style=color:#a6e22e>props</span>.<span style=color:#a6e22e>listId</span>}
+    <span style=color:#f92672>&gt;</span>
+</code></pre></div><p>The value is used by the parent to know which card&rsquo;s details button was clicked.</p>
+<h1 id=tying-everything-together-in-memberlist>Tying everything together in MemberList<a href=#tying-everything-together-in-memberlist class=hanchor arialabel=Anchor>&#8983;</a> </h1>
+<p>Since giving each card its own instance of the modal felt wasteful, I had a single instance of the modal component owned by the memberlist, which would be populated with information from the button click callback.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript>    <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>MemberModal</span> <span style=color:#a6e22e>member</span><span style=color:#f92672>=</span>{<span style=color:#a6e22e>SelectedMember</span>} <span style=color:#a6e22e>showModal</span><span style=color:#f92672>=</span>{<span style=color:#a6e22e>ShowModal</span>} <span style=color:#a6e22e>onDetailsCloseClick</span><span style=color:#f92672>=</span>{<span style=color:#a6e22e>closeDetailsModal</span>} <span style=color:#f92672>/&gt;</span>
+</code></pre></div><p>Here we can see the onDetailsCloseClick callback property from the modal being used - &lsquo;closeDetailsModal&rsquo; will be called on this component when the callback is raised in the child:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript>    <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>closeDetailsModal</span>(<span style=color:#a6e22e>evt</span>) {
+        <span style=color:#a6e22e>setShowModal</span>(<span style=color:#66d9ef>false</span>);
+    }
+  }
+</code></pre></div><p>Set show modal is the setter on the ShowModal property state variable, so taking the last two snippets together we can see that when the close button on the modal is clicked, the parent component set&rsquo;s its &lsquo;showModal&rsquo; property to false, closing the modal.</p>
+<p>Similarly, when the details button is clicked on a card, we can get the &lsquo;value&rsquo; property we defined on it back to set the SelectedMember property, which the modal uses to render the Member in question:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>handleDetailsClick</span>(<span style=color:#a6e22e>evt</span>) {
+    <span style=color:#a6e22e>setSelectedMember</span>(<span style=color:#a6e22e>FilteredMembers</span>[<span style=color:#a6e22e>evt</span>.<span style=color:#a6e22e>target</span>.<span style=color:#a6e22e>value</span>]);
+    <span style=color:#a6e22e>setShowModal</span>(<span style=color:#66d9ef>true</span>);
+  }
+</code></pre></div><h1 id=deploying-to-linode>Deploying to Linode<a href=#deploying-to-linode class=hanchor arialabel=Anchor>&#8983;</a> </h1>
+<p>With everything working how I wanted it, I decided to upload my project to Linode.</p>
+<p>I set up the cheapest node they offer, then ssh&rsquo;d to it and added a user.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>ssh root@mylinodeip
+
+user add webuser
+passwd webuser
+</code></pre></div><p>I also installed apache2</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>sudo apt install apache
+</code></pre></div><p>And gave the new user access to the www directory</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>sudo chmod <span style=color:#ae81ff>755</span> /var/www/html/
+sudo chown -R webuser:www-data /var/www/html/chmod /
+</code></pre></div><p>I then copied a deployment script off the internet to build the app and scp it onto the machine, then restarted apache</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>systemctl restart apache2
+</code></pre></div><h1 id=conclusions-and-next-steps>Conclusions and Next Steps<a href=#conclusions-and-next-steps class=hanchor arialabel=Anchor>&#8983;</a> </h1>
+<p>React is pretty nice. I like how terse the syntax is, and how it doesn&rsquo;t add much to base javascript. It was really nice designing the UI alongside Twitch chat, given I don&rsquo;t exactly have a good eye for design.</p>
+<p>I want to try out Tailwind CSS next, possibly with a more complicated React app with a dotnet backend.</p>
+</div></div>
+</div>
+</div>
+<footer class=footer>
+<div class=footer__inner>
+<div class=copyright>
+<span>© 2022 Powered by <a href=http://gohugo.io>Hugo</a></span>
+<span>:: Theme made by <a href=https://twitter.com/panr>panr</a></span>
+</div>
+</div>
+</footer>
+<script src=https://rasengangstarr.github.io/Portfolio/assets/main.js></script>
+<script src=https://rasengangstarr.github.io/Portfolio/assets/prism.js></script>
+</div>
+</body>
+</html>
