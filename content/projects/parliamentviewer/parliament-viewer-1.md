@@ -1,5 +1,5 @@
 ---
-title: "React Parliament Viewer"
+title: "React Parliament Viewer Part 1"
 date: 2022-02-19T14:34:18Z
 draft: false
 summary: "Learning React.JS by building a view of the UK Parliament API"
@@ -9,6 +9,7 @@ tags:
 - 'webdev'
 mermaid: true
 ---
+[Part 2](../parliament-viewer-2)
 
 [Github Page](https://github.com/Rasengangstarr/ParliamentViewer)
 
